@@ -1,0 +1,26 @@
+﻿@page
+@model Antique_Shop.Views.AuctionList.IndexModel
+@{
+}
+
+<br />
+<div class= "container row">
+    <div class="col-7">
+        <h2 class="text-warning">Auctions: </h2>
+    </div>
+    <div class="col-3">
+       <a class="btn btn-info form-control">Add New Auction</a>
+    </div>
+
+    <div>
+    <form method="post">
+        @if (Model.Auctions.Count()>0)
+        { 
+        }
+        else
+        {
+            <a>No auctions!</a>
+        }
+    </form>
+    <</div>
+</div>
