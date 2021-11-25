@@ -14,5 +14,6 @@ namespace Antique_Shop.Models
         }
 
         public DbSet<Auction> Auction{ get; set; }
+        public DbSet<LoginUser> LoginUser { get; set; }
     }
 }
