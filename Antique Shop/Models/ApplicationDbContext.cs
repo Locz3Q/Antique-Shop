@@ -13,7 +13,18 @@ namespace Antique_Shop.Models
 
         }
 
-        public DbSet<Auction> Auction{ get; set; }
-        public DbSet<LoginUser> LoginUser { get; set; }
+        public DbSet<Auction> Auctions{ get; set; }
+       // public DbSet<LoginUser> LoginUser { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Auction>().HasData(
+                new Auction
+                {
+                    id=1,
+                    name = "ksiazka"
+                }
+                );
+        }
     }
 }

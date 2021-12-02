@@ -1,21 +1,31 @@
-﻿@page
-@model Antique_Shop.Views.AuctionList.IndexModel 
-@{
+﻿@{
+    ViewData["Title"] = "AuctionList";
 }
+@model IEnumerable<Antique_Shop.Models.Auction>
 
-<br />
-<div class="container row">
-    <div class="col-7">
-        <h2 class="text-warning">Auctions: </h2>
-    </div>
-    <div class="col-3">
-        <a class="btn btn-info form-control">Add New Auction</a>
-    </div>
-    
+.<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AuctionList</title>
+</head>
+<body>
     <div>
-        <form method="post">
-            <br />  <a>No auctions!</a>
-        </form>       
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var auction in Model)
+                {
+                    <tr>
+                        <td>@auction.id  </td>
+                        <td>@auction.name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
-</div>
-
+</body>
+</html>

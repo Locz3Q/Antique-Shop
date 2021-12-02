@@ -424,4 +424,4 @@ D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netc
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Antique Shop.MvcApplicationPartsAssemblyInfo.cs
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Antique Shop.MvcApplicationPartsAssemblyInfo.cache
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Razor\Views\Auction\Index.cshtml.g.cs
-D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Razor\Views\Auction\Create.cshtml.g.cs
