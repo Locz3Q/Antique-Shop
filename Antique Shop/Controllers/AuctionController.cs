@@ -20,9 +20,16 @@ namespace Antique_Shop.Controllers
             return View(auction);
         }
 
-        public IActionResult Create()
+        [HttpGet]
+        public ViewResult Create()
         {
             return View();
+        }
+        [HttpPost]
+        public RedirectToActionResult Create(Auction auction)
+        {
+            auctionRepository.Add(auction);
+            return RedirectToAction("index");
         }
     }
 }

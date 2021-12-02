@@ -5,10 +5,14 @@
 <form asp-controller="Auction" asp-action="Create" method="post">
 
     <div>
-        <label asp-for="name"></label>
-        <input asp-for="name" />
         <div>
-            <button type="button">Dodaj</button>
-        </div>
-    </div>
+            <label asp-for="id"></label>
+            <input asp-for="id" />
+            <div>
+                <label asp-for="name"></label>
+                <input asp-for="name" />
+                <div>
+                    <a asp-controller="Auction" asp-action="Create" method="post" class="btn btn-dark">Dodaj</a>
+                </div>
+            </div>
 </form>
