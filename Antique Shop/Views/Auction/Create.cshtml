@@ -6,13 +6,11 @@
 
     <div>
         <div>
-            <label asp-for="id"></label>
-            <input asp-for="id" />
-            <div>
-                <label asp-for="name"></label>
-                <input asp-for="name" />
-                <div>
-                    <a asp-controller="Auction" asp-action="Create" method="post" class="btn btn-dark">Dodaj</a>
-                </div>
-            </div>
+            <label asp-for="name"></label>
+            <input asp-for="name" />
+        </div>
+        <div>
+            <button id="Button" type="submit" name="submit" formmethod="post" class="btn btn-secondary btn-sm">Dodaj</button>
+        </div>
+    </div>
 </form>
