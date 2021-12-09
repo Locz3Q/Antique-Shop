@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Login Page";
+}
+@model Antique_Shop.ViewModels.LoginUser;
+
+<form asp-controller="Account" asp-action="Login" method="post">
+
+    <div>
+        <div class="form-group">
+            <label asp-for="Login"></label>
+            <input asp-for="Login" class="form-control" />
+            <span asp-validation-for="Login" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="RememberMe"></label>
+            <input asp-for="RememberMe" class=custom-checkbox />
+        </div>
+        <div>
+            <button id="Button" type="submit" name="submit" formmethod="post" class="btn btn-secondary btn-sm">Zaloguj</button>
+        </div>
+    </div>
+</form>
+

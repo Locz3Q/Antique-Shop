@@ -117,8 +117,6 @@ D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netc
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.CookiePolicy.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Cors.dll
-D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
-D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.DataProtection.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll
@@ -199,8 +197,6 @@ D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netc
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Hosting.Abstractions.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Hosting.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Http.dll
-D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Identity.Core.dll
-D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Identity.Stores.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Localization.Abstractions.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Localization.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Configuration.dll
@@ -420,8 +416,15 @@ D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netc
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Razor\Views\Auction\Index.cshtml.g.cs
+D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Razor\Views\Auction\Create.cshtml.g.cs
+D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Antique Shop.csproj.CoreCompileInputs.cache
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Antique Shop.MvcApplicationPartsAssemblyInfo.cs
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Antique Shop.MvcApplicationPartsAssemblyInfo.cache
-D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Razor\Views\Auction\Index.cshtml.g.cs
-D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Razor\Views\Auction\Create.cshtml.g.cs
+D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Razor\Views\Account\Registration.cshtml.g.cs
+D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll

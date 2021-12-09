@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Antique_Shop.Models
-{
+{/*
     public class AuctionRepositorySQL : IAuctionRepository
     {
         private readonly ApplicationDbContext dbContext;
@@ -49,5 +49,5 @@ namespace Antique_Shop.Models
             dbContext.SaveChanges();
             return auctionUpdate;
         }
-    }
+    }*/
 }
