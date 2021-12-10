@@ -32,6 +32,7 @@ namespace Antique_Shop
         .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddScoped<IAccountRepository,AccountRepositorySQL>();
+            services.AddScoped<IAuctionRepository, AuctionRepositorySQL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

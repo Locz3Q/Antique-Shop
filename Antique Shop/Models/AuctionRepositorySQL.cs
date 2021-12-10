@@ -1,13 +1,15 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Antique_Shop.Models
-{/*
+{
     public class AuctionRepositorySQL : IAuctionRepository
     {
         private readonly ApplicationDbContext dbContext;
+        
 
         public AuctionRepositorySQL(ApplicationDbContext dbContext)
         {
@@ -15,7 +17,8 @@ namespace Antique_Shop.Models
         }
         public Auction Add(Auction auction)
         {
-            
+           // var user = UserManager.FindById(User.Identity.GetUserId());
+           // Account currentUser = dbContext.Users.FirstOrDefault(x => x.Id == currentUserId);
             dbContext.Auctions.Add(auction);
             dbContext.SaveChanges();
             return auction;
@@ -49,5 +52,5 @@ namespace Antique_Shop.Models
             dbContext.SaveChanges();
             return auctionUpdate;
         }
-    }*/
+    }
 }

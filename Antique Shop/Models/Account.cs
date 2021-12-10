@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace Antique_Shop.Models
 {
@@ -17,5 +18,7 @@ namespace Antique_Shop.Models
         public int Postcode { get; set; }
         public string City { get; set; }
         public DateTime AccountCreateDate { get; set; }
+        public virtual ICollection<Auction> Auctions { get; set; }
+
     }
 }

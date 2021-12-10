@@ -13,24 +13,15 @@ namespace Antique_Shop.Models
         {
 
         }
-
-        //public DbSet<Auction> Auctions{ get; set; }
         public DbSet<Account> Accounts { get; set; }
-        // public DbSet<LoginUser> LoginUser { get; set; }
-
-             protected override void OnModelCreating(ModelBuilder modelBuilder)
-             {
+        public DbSet<Auction> Auctions { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
             base.OnModelCreating(modelBuilder);
-            /*
-            modelBuilder.Entity<Account>(b =>
-            {
-                b.HasKey(u => u.Id);
-                b.ToTable("AspNetUsers");
-        }) ;*/
-          //  modelBuilder.Entity<Account>().HasKey(u => u.id);
-           // modelBuilder.ToTable("asdsad");
-            //  modelBuilder.Entity<Account>()
-            //     .ToTable("Accounts", t => t.ExcludeFromMigrations());
+            modelBuilder.Entity<Auction>()
+    .HasOne(auc => auc.Account)
+    .WithMany(acc => acc.Auctions)
+    .HasForeignKey(auc => auc.AccountId);
         }
     }
 }

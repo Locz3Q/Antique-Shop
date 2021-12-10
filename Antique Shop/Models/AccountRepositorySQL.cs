@@ -25,7 +25,7 @@ namespace Antique_Shop.Models
         {
             Account account = dbContext.Accounts.Find(id);
             if (account != null)
-            {
+            {   
                 dbContext.Remove(account);
                 dbContext.SaveChanges();
             }

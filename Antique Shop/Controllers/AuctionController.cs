@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Antique_Shop.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 
 namespace Antique_Shop.Controllers
 {
