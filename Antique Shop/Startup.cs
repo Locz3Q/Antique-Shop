@@ -33,6 +33,7 @@ namespace Antique_Shop
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddScoped<IAccountRepository,AccountRepositorySQL>();
             services.AddScoped<IAuctionRepository, AuctionRepositorySQL>();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

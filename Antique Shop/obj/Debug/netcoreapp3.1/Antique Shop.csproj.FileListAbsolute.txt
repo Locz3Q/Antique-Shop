@@ -36,7 +36,6 @@ D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netc
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Antique Shop.csprojAssemblyReference.cache
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Antique Shop.AssemblyInfoInputs.cache
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Antique Shop.AssemblyInfo.cs
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Antique Shop.RazorAssemblyInfo.cache
@@ -428,3 +427,4 @@ D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netc
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Antique Shop.csprojAssemblyReference.cache

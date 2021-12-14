@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Antique_Shop.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211210180705_AddAuction")]
+    [Migration("20211214162859_AddAuction")]
     partial class AddAuction
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -81,6 +81,9 @@ namespace Antique_Shop.Migrations
                     b.Property<int>("Postcode")
                         .HasColumnType("int");
 
+                    b.Property<float>("Saldo")
+                        .HasColumnType("real");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -117,9 +120,23 @@ namespace Antique_Shop.Migrations
                     b.Property<string>("AccountId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
+                    b.Property<int?>("Category")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime>("ReleaseDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Antique_Shop.Models
@@ -9,16 +11,27 @@ namespace Antique_Shop.Models
     public class AuctionRepositorySQL : IAuctionRepository
     {
         private readonly ApplicationDbContext dbContext;
-        
+        private readonly IHttpContextAccessor httpContextAccessor;
 
-        public AuctionRepositorySQL(ApplicationDbContext dbContext)
+      
+
+        public string GetCurrentUserId()
+        {
+            var userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return userId;
+        }
+
+
+        public AuctionRepositorySQL(ApplicationDbContext dbContext, IHttpContextAccessor httpContextAccessor)
         {
             this.dbContext = dbContext;
+            this.httpContextAccessor = httpContextAccessor;
         }
         public Auction Add(Auction auction)
         {
-           // var user = UserManager.FindById(User.Identity.GetUserId());
-           // Account currentUser = dbContext.Users.FirstOrDefault(x => x.Id == currentUserId);
+            // var user = UserManager.FindById(User.Identity.GetUserId());
+            // Account currentUser = dbContext.Users.FirstOrDefault(x => x.Id == currentUserId);
+            auction.AccountId = this.GetCurrentUserId();
             dbContext.Auctions.Add(auction);
             dbContext.SaveChanges();
             return auction;

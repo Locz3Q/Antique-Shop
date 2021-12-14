@@ -12,9 +12,14 @@ namespace Antique_Shop.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
         public string Name { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public Category? Category { get; set; }
+        public float Price { get; set; }
+        public string ImagePath { get; set; }
+        public string Description { get; set; }
         public string AccountId { get; set; }
+       
         [ForeignKey("AccountId")]
         public virtual Account Account { get; set; }
     }

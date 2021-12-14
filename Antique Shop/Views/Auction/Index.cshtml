@@ -14,15 +14,28 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>ReleaseDate</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Description</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach(var auction in Model)
                 {
-                    <tr>
-                        <td>@auction.Id  </td>
-                        <td>@auction.Name</td>
-                    </tr>
+                    var imagePath = "~/images/" + (auction.ImagePath ?? "noimage.jpg");
+                <tr>
+                    <td>@auction.Id  </td>
+                    <td>@auction.Name</td>
+                    <td>@auction.ReleaseDate</td>
+                    <td>@auction.Category</td>
+                    <td>@auction.Price</td>
+                    <td>@auction.Description</td>
+                    <td>
+                        <img class="card-img-top imageThumbnail" src="@imagePath"
+                             asp-append-version="true" />
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>

@@ -17,6 +17,7 @@ namespace Antique_Shop.Models
         public int ApartmentNumber { get; set; }
         public int Postcode { get; set; }
         public string City { get; set; }
+        public float Saldo { get; set; }
         public DateTime AccountCreateDate { get; set; }
         public virtual ICollection<Auction> Auctions { get; set; }
 

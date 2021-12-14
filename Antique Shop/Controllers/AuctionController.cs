@@ -5,15 +5,21 @@ using System.Threading.Tasks;
 using Antique_Shop.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using Antique_Shop.ViewModels;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Antique_Shop.Controllers
 {
     public class AuctionController : Controller
     {
         private readonly IAuctionRepository auctionRepository;
-        public AuctionController(IAuctionRepository auctionRepository)
+        private readonly IHostingEnvironment hostingEnvironment;
+
+        public AuctionController(IAuctionRepository auctionRepository, IHostingEnvironment hostingEnvironment)
         {
             this.auctionRepository = auctionRepository;
+            this.hostingEnvironment = hostingEnvironment;
         }
         public ViewResult Index()
         {
@@ -27,10 +33,32 @@ namespace Antique_Shop.Controllers
             return View();
         }
         [HttpPost]
-        public RedirectToActionResult Create(Auction auction)
+        public IActionResult Create(AuctionViewModel auctionViewModel)
         {
-            auctionRepository.Add(auction);
-            return RedirectToAction("index");
+            if (ModelState.IsValid)
+            {
+                string fileName = null;
+                if(auctionViewModel.Image != null)
+                {
+                    string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "images");
+                    fileName = Guid.NewGuid().ToString() + "_" + auctionViewModel.Image.FileName;
+                    string filePath = Path.Combine(uploadsFolder, fileName);
+                    auctionViewModel.Image.CopyTo(new FileStream(filePath, FileMode.Create));
+                }
+                Auction auction = new Auction
+                {
+                    Name = auctionViewModel.Name,
+                    ReleaseDate = auctionViewModel.ReleaseDate,
+                    Category = auctionViewModel.Category,
+                    Price = auctionViewModel.Price,
+                    ImagePath = fileName,
+                    Description = auctionViewModel.Description
+                };
+                auctionRepository.Add(auction);
+                return RedirectToAction("index");
+            }
+            return View();
         }
+        
     }
 }

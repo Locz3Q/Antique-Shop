@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Antique_Shop.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211209154632_AddAccount")]
+    [Migration("20211214162916_AddAccount")]
     partial class AddAccount
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -81,6 +81,9 @@ namespace Antique_Shop.Migrations
                     b.Property<int>("Postcode")
                         .HasColumnType("int");
 
+                    b.Property<float>("Saldo")
+                        .HasColumnType("real");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -105,6 +108,41 @@ namespace Antique_Shop.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("Antique_Shop.Models.Auction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AccountId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("Category")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime>("ReleaseDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.ToTable("Auctions");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -238,6 +276,15 @@ namespace Antique_Shop.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Antique_Shop.Models.Auction", b =>
+                {
+                    b.HasOne("Antique_Shop.Models.Account", "Account")
+                        .WithMany("Auctions")
+                        .HasForeignKey("AccountId");
+
+                    b.Navigation("Account");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -287,6 +334,11 @@ namespace Antique_Shop.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Antique_Shop.Models.Account", b =>
+                {
+                    b.Navigation("Auctions");
                 });
 #pragma warning restore 612, 618
         }
