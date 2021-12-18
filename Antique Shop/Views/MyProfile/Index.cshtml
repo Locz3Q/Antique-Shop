@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "My Profile";
+}
+@model Antique_Shop.Models.Account
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div>
+        <a>Personal Data</a><br />
+        <a>Bought auctions</a><br />
+        <a>Sold auctions</a><br />
+        <a>Borrowed auctions</a><br />
+        <a>Saldo</a><br />
+    </div>
+    <div>
+        <br />
+        First Name : @Model.FirstName <br />
+        Last Name: @Model.LastName <br />
+        Street: @Model.Street<br />
+        Apartment Number: @Model.ApartmentNumber<br />
+        Postcode: @Model.Postcode<br />
+        City: @Model.City<br />
+        Saldo: @Model.Saldo<br />
+    </div>
+    <div>
+        <form method="get" asp-controller="MyProfile" asp-action="Edit">
+            <button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-secondary btn-sm">Change personal data</button>
+         </form>
+    </div>
+</body>
+</html>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace Antique_Shop.Models
         }
         public Account Add(Account account)
         {
-            account.Saldo = 0;
+            
             dbContext.Accounts.Add(account);
             dbContext.SaveChanges();
             return account;
@@ -31,6 +32,8 @@ namespace Antique_Shop.Models
             }
             return account;
         }
+
+    
 
         public Account Update(Account accountUpdate)
         {

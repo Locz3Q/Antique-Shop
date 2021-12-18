@@ -66,7 +66,8 @@ namespace Antique_Shop.Controllers
                     ApartmentNumber = model.ApartmentNumber,
                     Postcode = model.Postcode,
                     City = model.City,
-                    AccountCreateDate = DateTime.Now
+                    AccountCreateDate = DateTime.Now,
+                    Saldo = 0
 
                 };
 

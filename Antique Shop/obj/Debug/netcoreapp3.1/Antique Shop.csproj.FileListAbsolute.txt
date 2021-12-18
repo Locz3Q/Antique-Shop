@@ -428,3 +428,5 @@ D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netc
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Antique Shop.csprojAssemblyReference.cache
+D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Razor\Views\MyProfile\Index.cshtml.g.cs
+D:\Politechnika v2\5 semestr\IO_Projekt\Antique Shop\Antique Shop\obj\Debug\netcoreapp3.1\Razor\Views\MyProfile\Edit.cshtml.g.cs
