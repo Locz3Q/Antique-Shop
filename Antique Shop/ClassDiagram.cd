@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Antique_Shop.Controllers.AccountController">
+    <Position X="3.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAIAIAAAAAAAAAAQAAAEAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Antique_Shop.Controllers.AuctionController">
+    <Position X="1" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAACEAAAQAAAA=</HashCode>
+      <FileName>Controllers\AuctionController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Antique_Shop.Controllers.HomeController">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAIAAAAQAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Antique_Shop.Controllers.MyProfileController">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\MyProfileController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Antique_Shop.Models.Account">
+    <Position X="7.75" Y="2" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAwAAAAIAAAAgAAAAQAAAAAAAAIAAAAAAAg=</HashCode>
+      <FileName>Models\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Antique_Shop.Models.AccountRepositorySQL" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountRepositorySQL.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Antique_Shop.Models.ApplicationDbContext" Collapsed="true">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEQAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ApplicationDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Antique_Shop.Models.Auction" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAoAAAAAgAAAIQAAAAAAAAAAAAAAAAACEA=</HashCode>
+      <FileName>Models\Auction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Antique_Shop.Models.AuctionRepositorySQL" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAACAAAAIAQAAAAAgAAEAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\AuctionRepositorySQL.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Antique_Shop.Models.ErrorViewModel" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ErrorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.IdentityUser" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Mvc.Controller">
+    <Position X="3.5" Y="0.5" Width="3" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext&lt;TUser&gt;" Collapsed="true">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Antique_Shop.ViewModels.AuctionViewModel">
+    <Position X="18.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAoAAAAAAAAAAQAAAAAABAAAAAAAAAACAA=</HashCode>
+      <FileName>ViewModels\AuctionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Antique_Shop.ViewModels.LoginUser">
+    <Position X="14.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAQAAAgAAA=</HashCode>
+      <FileName>ViewModels\LoginUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Antique_Shop.ViewModel.Registration">
+    <Position X="16.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACQAAAAIAAAAwAAAAAAAAAACAAIQAAAAAAg=</HashCode>
+      <FileName>ViewModels\Registration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Antique_Shop.Models.IAccountRepository" Collapsed="true">
+    <Position X="10.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IAccountRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Antique_Shop.Models.IAuctionRepository" Collapsed="true">
+    <Position X="12" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAIAAAAAAAAAAEAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\IAuctionRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Antique_Shop.Models.Category" Collapsed="true">
+    <Position X="10.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAACAAAAAAAACAAAAAAQ=</HashCode>
+      <FileName>Models\Category.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
