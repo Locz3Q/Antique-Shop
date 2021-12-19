@@ -59,6 +59,9 @@ namespace Antique_Shop.Controllers
             }
             return View();
         }
-        
+        Auction createAuction()
+        {
+
+        }
     }
 }
