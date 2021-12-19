@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Politechnika v2\\5 semestr\\IO_Projekt\\Antique Shop\\Antique Shop\\Antique Shop.csproj": {}
+    "C:\\Users\\duda_\\Desktop\\Antique-Shop\\Antique Shop\\Antique Shop.csproj": {}
   },
   "projects": {
-    "D:\\Politechnika v2\\5 semestr\\IO_Projekt\\Antique Shop\\Antique Shop\\Antique Shop.csproj": {
+    "C:\\Users\\duda_\\Desktop\\Antique-Shop\\Antique Shop\\Antique Shop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Politechnika v2\\5 semestr\\IO_Projekt\\Antique Shop\\Antique Shop\\Antique Shop.csproj",
+        "projectUniqueName": "C:\\Users\\duda_\\Desktop\\Antique-Shop\\Antique Shop\\Antique Shop.csproj",
         "projectName": "Antique Shop",
-        "projectPath": "D:\\Politechnika v2\\5 semestr\\IO_Projekt\\Antique Shop\\Antique Shop\\Antique Shop.csproj",
-        "packagesPath": "C:\\Users\\iammi\\.nuget\\packages\\",
-        "outputPath": "D:\\Politechnika v2\\5 semestr\\IO_Projekt\\Antique Shop\\Antique Shop\\obj\\",
+        "projectPath": "C:\\Users\\duda_\\Desktop\\Antique-Shop\\Antique Shop\\Antique Shop.csproj",
+        "packagesPath": "C:\\Users\\duda_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\duda_\\Desktop\\Antique-Shop\\Antique Shop\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\iammi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\duda_\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -78,6 +77,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -86,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }
