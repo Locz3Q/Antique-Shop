@@ -22,7 +22,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Antique_Shop.Controllers.MyProfileController">
-    <Position X="7.75" Y="4.75" Width="1.5" />
+    <Position X="7.75" Y="4.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAEAAAAAAAA=</HashCode>
       <FileName>Controllers\MyProfileController.cs</FileName>

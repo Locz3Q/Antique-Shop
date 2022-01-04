@@ -10,7 +10,6 @@ namespace Antique_Shop.Models
 {
     public class Account : IdentityUser
     {
-
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Street { get; set; }

@@ -16,7 +16,6 @@ namespace Antique_Shop.Models
         }
         public Account Add(Account account)
         {
-            
             dbContext.Accounts.Add(account);
             dbContext.SaveChanges();
             return account;

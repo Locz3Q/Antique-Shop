@@ -79,8 +79,7 @@ namespace Antique_Shop.Controllers
                 }
 
                 //@todo
-                var errors = result.Errors;
-                var message = string.Join(", ", errors);
+               //errors
 
             }
             return View(model);

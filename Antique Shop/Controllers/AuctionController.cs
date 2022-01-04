@@ -54,6 +54,7 @@ namespace Antique_Shop.Controllers
                     ImagePath = fileName,
                     Description = auctionViewModel.Description
                 };
+                
                 auctionRepository.Add(auction);
                 return RedirectToAction("index");
             }

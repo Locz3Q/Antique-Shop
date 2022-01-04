@@ -28,9 +28,15 @@
         Saldo: @Model.Saldo<br />
     </div>
     <div>
-        <form method="get" asp-controller="MyProfile" asp-action="Edit">
+        <form method="get" asp-controller="MyProfile" asp-action="EditPersonalData">
             <button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-secondary btn-sm">Change personal data</button>
-         </form>
+        </form>
+        <form method="get" asp-controller="MyProfile" asp-action="EditEmail">
+            <button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-secondary btn-sm">Change email</button>
+        </form>
+        <form method="get" asp-controller="MyProfile" asp-action="EditPassword">
+            <button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-secondary btn-sm">Change password</button>
+        </form>
     </div>
 </body>
 </html>
