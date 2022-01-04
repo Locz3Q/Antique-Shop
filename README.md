@@ -1,3 +1,3 @@
 # Antique-Shop
-Website, where you can buy,sell or borrow books.
+Website to buy, sell and borrow books.
 ASP.NET, Entity Framework, SQL
