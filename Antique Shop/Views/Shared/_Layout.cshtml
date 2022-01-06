@@ -82,8 +82,15 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
+            var stickyNav = $('nav').offset().top;
             var stickNavBar = function () {
-                $('.nav').addClass('a.navbar-brand');
+                var scrollTop = $(window).scrollTop();
+                if (scrollTop-1 > stickyNav) {
+                    $('nav').addClass('sticky');
+                }
+                else {
+                    $('nav').removeClass('sticky');
+                }
             };
             stickNavBar();
             $(window).scroll(function () {
