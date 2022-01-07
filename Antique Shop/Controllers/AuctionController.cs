@@ -60,10 +60,6 @@ namespace Antique_Shop.Controllers
             }
             return View();
         }
-        Auction createAuction()
-        {
-            //TODO
-            return new Auction();
-        }
+
     }
 }

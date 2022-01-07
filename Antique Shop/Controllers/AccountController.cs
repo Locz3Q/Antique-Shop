@@ -63,6 +63,7 @@ namespace Antique_Shop.Controllers
                     PhoneNumber = model.PhoneNumber,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
+                    Street = model.Street,
                     ApartmentNumber = model.ApartmentNumber,
                     Postcode = model.Postcode,
                     City = model.City,

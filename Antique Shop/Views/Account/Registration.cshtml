@@ -3,9 +3,9 @@
 }
 @model Antique_Shop.ViewModel.Registration
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-7">
-                <div class="jumbotron">
+                <div class="jumbotron shadow-lg p-3 mb-5 bg-white rounded">
                     <h1 style="text-align: center;">Registration</h1><br/>
                     <form method="post">
                         <div asp-validation-summary="All" class="text-danger"></div>
@@ -73,7 +73,7 @@
                             
                             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                         </div>
-                        <button type="submit" class="btn btn-outline-primary">Register</button>
+                        <button type="submit" class="btn btn-outline-primary ">Register</button>
                     </form>
                 </div>
             </div>
