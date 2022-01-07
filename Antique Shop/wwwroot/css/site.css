@@ -44,6 +44,10 @@ span {
     align-items: center;
 }
 
+.navbarCorrector {
+    height: 100px;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
