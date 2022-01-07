@@ -21,7 +21,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
 					<ul class="navbar-nav flex-grow-1">
 						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+							<a class="nav-link text-dark btn btn-light" style="border-radius: 0;" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
 						</li>
 					</ul>
                 </div>
@@ -31,15 +31,15 @@
                     @if (SignInManager.IsSignedIn(User))
                     {
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MyProfile" asp-action="Index">My Profile</a>
+                            <a class="nav-link text-dark btn btn-light" style="border-radius: 0;" asp-area="" asp-controller="MyProfile" asp-action="Index">My Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Auction" asp-action="Create">Add Auction</a>
+                            <a class="nav-link text-dark btn btn-light" style="border-radius: 0;" asp-area="" asp-controller="Auction" asp-action="Create">Add Auction</a>
                         </li>
 
                         <li class="nav-item">
                             <form method="post" asp-controller="Account" asp-action="Logout">
-                                <button type="submit" style="width:auto">
+                                <button type="submit" class="btn btn-warning" style="border-radius: 0;">
                                     Logout @User.Identity.Name
                                 </button>
                             </form>
@@ -48,12 +48,12 @@
                     else
                     {
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Account" asp-action="Registration">
+                            <a class="nav-link" style="border-radius: 0;" asp-controller="Account" asp-action="Registration">
                                 Sign up
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Account" asp-action="Login">
+                            <a class="nav-link" style="border-radius: 0;" asp-controller="Account" asp-action="Login">
                                 Login
                             </a>
                         </li>
