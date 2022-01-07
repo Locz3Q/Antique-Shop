@@ -12,21 +12,20 @@ namespace Antique_Shop.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IAuctionRepository auctionRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IAuctionRepository auctionRepository)
         {
             _logger = logger;
+            this.auctionRepository = auctionRepository;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var auction = auctionRepository.GetAllAuctions();
+            return View(auction);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         public IActionResult About()
         {
