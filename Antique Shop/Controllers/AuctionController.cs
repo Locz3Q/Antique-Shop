@@ -52,7 +52,7 @@ namespace Antique_Shop.Controllers
                 };
                 
                 auctionRepository.Add(auction);
-                return RedirectToAction("index");
+                return RedirectToAction("Index", "Home");
             }
             return View();
         }
