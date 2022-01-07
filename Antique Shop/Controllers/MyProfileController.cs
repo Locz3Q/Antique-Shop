@@ -81,8 +81,9 @@ namespace Antique_Shop.Controllers
                 var result = await passwordValidator.ValidateAsync(userManager, user, model.Password);
                 if (!result.Succeeded)
                     return View();
-
-                await userManager.ChangeEmailAsync(user, model.Email, null);
+                //@todo
+                //var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
+               // await userManager.ChangeEmailAsync(user, model.Email, token);
                 return RedirectToAction("Index");
             }
             return View();
