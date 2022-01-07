@@ -8,38 +8,7 @@
     <title>AuctionList</title>
 </head>
 <body>
-    @*<div>
-            <table class="auction-list-table">
-                <thead>
-                    <tr>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var auction in Model)
-                    {
-                        var imagePath = "~/images/" + (auction.ImagePath ?? "noimage.jpg");
-                        <tr>
-                            <td class="image-container" colspan="3" rowspan="3"><img src="@imagePath" asp-append-version="true"/></td>
-                            <td class="tg-0lax" colspan="6">@auction.Name</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0lax" colspan="2">@auction.Price zł</td>
-                            <td class="tg-0lax" colspan="2">Category: @auction.Category</td>
-                            <td class="tg-0lax" colspan="2">Release Date: @auction.ReleaseDate</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0lax" colspan="6">@auction.Description</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>*@
     <div class="container py-5">
-        <div class="row text-center text-white mb-5">
-            <div class="col-lg-7 mx-auto">
-                <h1 class="display-4">Product List</h1>
-            </div>
-        </div>
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <!-- List group-->
