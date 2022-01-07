@@ -21,11 +21,7 @@ namespace Antique_Shop.Controllers
             this.auctionRepository = auctionRepository;
             this.hostingEnvironment = hostingEnvironment;
         }
-        public ViewResult Index()
-        {
-            var auction = auctionRepository.GetAllAuctions();
-            return View(auction);
-        }
+
 
         [HttpGet]
         public ViewResult Create()
