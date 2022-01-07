@@ -8,8 +8,17 @@ namespace Antique_Shop.Models
     public enum Category
     {
         Action,
+        Adventure,
         Classics,
+        Detective,
+        Mystery,
+        Fantasy,
+        Horror,
         History,
-        ComicBookorGraphicNovel,
+        Fiction,
+        Romance,
+        SciFi,
+        Biography,
+        Poetry
     }
 }
