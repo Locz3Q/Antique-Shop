@@ -4,40 +4,58 @@
 @model Antique_Shop.ViewModels.AuctionViewModel;
 
 <form enctype="multipart/form-data" asp-controller="Auction" asp-action="Create" method="post">
+    <div class="col-md-12 container py-5 jumbotron shadow-lg p-3 mb-5 bg-white rounded font-weight-light text-muted">
+        <div class="row py-4 ">
+            <div class="col-lg-6 ">
 
-    <div>
-        <div>
-            <label asp-for="Name"></label>
-            <input asp-for="Name" />
-        </div>
-        <div>
-            <label asp-for="ReleaseDate"></label>
-            <input asp-for="ReleaseDate" />
-        </div>
-        <div>
-            <select asp-for="Category"
-                    asp-items="Html.GetEnumSelectList<Category>()">
-                <option value="">Choose Category</option>
-            </select>
-        </div>
-        <div>
-            <label asp-for="Price"></label>
-            <input asp-for="Price" />
-        </div>
-        <div>
-            <label asp-for="Description"></label>
-            <input asp-for="Description" />
-        </div>
-        <div>
-            <label asp-for="Image"></label>
-            <input asp-for="Image" />
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <button id="Button" type="submit" name="submit" formmethod="post" class="btn btn-secondary btn-sm">Create</button>
+                <div class="input-group mb-1 px-1 py-1 rounded-pill bg-black shadow-sm">
+                    <input asp-for="Image" id="upload" type="file" onchange="readURL(this);" class="form-control border-0" style="opacity: 0;">
+                    <label id="upload-label" for="upload" class="font-weight-light text-muted" style="position: absolute; top: 50%; left: 1rem; transform: translateY(-50%); text-align:center;">Choose Image</label>
+                    <div class="input-group-append">
+                        <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose Image</small></label>
+                    </div>
+                </div>
+
+
+                <div class="image-area mt-4" style="background-color: #eeeeee; padding: 1rem; position: relative;"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+
             </div>
+
+
+            <div style="margin-right: auto;
+                                margin-left: auto;">
+                <div class="form-group">
+                    <input class="form-control" asp-for="Name" placeholder="Name" />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" asp-for="ReleaseDate" placeholder="Release date" />
+                </div>
+                <div class="form-group">
+                    <select class="form-control" asp-for="Category"
+                            asp-items="Html.GetEnumSelectList<Category>()">
+                        <option value="">Choose Category</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" asp-for="Price" placeholder="Price" />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" asp-for="Description" placeholder="Description" />
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-10" style="width:100%;display:flex;justify-content:flex-end;align-content:flex-end">
+                        <button id="Button" type="submit" name="submit" formmethod="post" class="btn btn-outline-primary btn-sm">Create</button>
+                    </div>
+                </div>
+
+
+            </div>
+
         </div>
+        
     </div>
+    
 
     @section Scripts {
         <script>
@@ -51,80 +69,34 @@
     }
 </form>
 
-<div class="container">
 
-    <section class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Panel heading</h3>
-        </div>
-        <div class="panel-body">
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-            <form action="designer-finish.html" class="form-horizontal" role="form">
+            reader.onload = function (e) {
+                $('#imageResult')
+                    .attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 
-                <div class="form-group">
-                    <label for="name" class="col-sm-3 control-label">Буюртмачи</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Исм ёки корхона номи">
-                    </div>
-                </div> <!-- form-group // -->
-                <div class="form-group">
-                    <label for="name" class="col-sm-3 control-label">Название продукта</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Название">
-                    </div>
-                </div> <!-- form-group // -->
-                <div class="form-group">
-                    <label for="about" class="col-sm-3 control-label">Описание</label>
-                    <div class="col-sm-9">
-                        <textarea class="form-control"></textarea>
-                    </div>
-                </div> <!-- form-group // -->
-                <div class="form-group">
-                    <label for="qty" class="col-sm-3 control-label">Количество</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" name="qty" id="qty" placeholder="шт.">
-                    </div>
-                </div> <!-- form-group // -->
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Сроки</label>
-                    <div class="col-sm-3">
-                        <label class="control-label small" for="date_start">Начало: </label>
-                        <input type="text" class="form-control" name="date_start" id="date_start" placeholder="Начало">
-                    </div>
-                    <div class="col-sm-3">
-                        <label class="control-label small" for="date_finish">Конец:</label>
-                        <input type="text" class="form-control" name="date_finish" id="date_finish" placeholder="Конец">
-                    </div>
-                </div> <!-- form-group // -->
-                <div class="form-group">
-                    <label for="name" class="col-sm-3 control-label">Загрузить</label>
-                    <div class="col-sm-3">
-                        <label class="control-label small" for="file_img">Картинка (jpg/png):</label> <input type="file" name="file_img">
-                    </div>
-                    <div class="col-sm-3">
-                        <label class="control-label small" for="file_img">Файлы:</label>  <input type="file" name="file_archive">
-                    </div>
-                </div> <!-- form-group // -->
-                <div class="form-group">
-                    <label for="tech" class="col-sm-3 control-label">Технолог</label>
-                    <div class="col-sm-3">
-                        <select class="form-control">
-                            <option value="">Выберите</option>
-                            <option value="texnolog2">Технолог 2</option>
-                            <option value="texnolog3">Технолог 3</option>
-                        </select>
-                    </div>
-                </div> <!-- form-group // -->
-                <hr>
-                <div class="form-group">
-                    <div class="col-sm-offset-3 col-sm-9">
-                        <button type="submit" class="btn btn-primary">Отправить</button>
-                    </div>
-                </div> <!-- form-group // -->
-            </form>
+    $(function () {
+        $('#upload').on('change', function () {
+            readURL(input);
+        });
+    });
+</script>
 
-        </div><!-- panel-body // -->
-    </section><!-- panel// -->
+<script>
+    var input = document.getElementById('upload');
+    var infoArea = document.getElementById('upload-label');
 
-
-</div> <!-- container// -->
+    input.addEventListener('change', showFileName);
+    function showFileName(event) {
+        var input = event.srcElement;
+        var fileName = input.files[0].name;
+        infoArea.textContent = 'File name: ' + fileName;
+</script>
