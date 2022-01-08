@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "My Profile";
+	ViewData["Title"] = "My Profile";
 }
 @model Antique_Shop.Models.Account
 
@@ -7,36 +7,197 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+	<title></title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 </head>
 <body>
-    <div>
-        <a>Personal Data</a><br />
-        <a>Bought auctions</a><br />
-        <a>Sold auctions</a><br />
-        <a>Borrowed auctions</a><br />
-        <a>Saldo</a><br />
-    </div>
-    <div>
-        <br />
-        First Name : @Model.FirstName <br />
-        Last Name: @Model.LastName <br />
-        Street: @Model.Street<br />
-        Apartment Number: @Model.ApartmentNumber<br />
-        Postcode: @Model.Postcode<br />
-        City: @Model.City<br />
-        Saldo: @Model.Saldo<br />
-    </div>
-    <div>
-        <form method="get" asp-controller="MyProfile" asp-action="EditPersonalData">
-            <button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-secondary btn-sm">Change personal data</button>
-        </form>
-        <form method="get" asp-controller="MyProfile" asp-action="EditEmail">
-            <button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-secondary btn-sm">Change email</button>
-        </form>
-        <form method="get" asp-controller="MyProfile" asp-action="EditPassword">
-            <button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-secondary btn-sm">Change password</button>
-        </form>
-    </div>
+	@*<div>
+			<a>Personal Data</a><br />
+			<a>Bought auctions</a><br />
+			<a>Sold auctions</a><br />
+			<a>Borrowed auctions</a><br />
+			<a>Saldo</a><br />
+		</div>
+		<div>
+			<br />
+			First Name : @Model.FirstName <br />
+			Last Name: @Model.LastName <br />
+			Street: @Model.Street<br />
+			Apartment Number: @Model.ApartmentNumber<br />
+			Postcode: @Model.Postcode<br />
+			City: @Model.City<br />
+			Saldo: @Model.Saldo<br />
+		</div>
+		<div>
+			<form method="get" asp-controller="MyProfile" asp-action="EditPersonalData">
+				<button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-secondary btn-sm">Change personal data</button>
+			</form>
+			<form method="get" asp-controller="MyProfile" asp-action="EditEmail">
+				<button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-secondary btn-sm">Change email</button>
+			</form>
+			<form method="get" asp-controller="MyProfile" asp-action="EditPassword">
+				<button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-secondary btn-sm">Change password</button>
+			</form>
+		</div>*@
+
+	@*<div class="p-3 py-5">
+			<div class="d-flex justify-content-between align-items-center mb-3">
+				<h4 class="text-right">Profile Settings</h4>
+			</div>
+			<div class="row mt-2">
+				<div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+				<div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
+				<div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
+				<div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+				<div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+				<div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+				<div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+				<div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
+				<div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
+				<div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
+			</div>
+			<div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+		</div>*@
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-7">
+				<div class="card mb-2">
+					<header class="card-header">
+						<a href="#" data-toggle="collapse" data-target="#collapse_0" aria-expanded="true" class="">
+							<i class="icon-control fa fa-chevron-down fa-2x text-dark"></i>
+							<h3 class="text-dark">My Profile</h3>
+						</a>
+					</header>
+					<div class="filter-content collapse show" id="collapse_0" style="">
+						<div class="card-body">
+							<div class="row" style="justify-content: center;">
+								<div style="margin-left: auto;margin-top: 0;margin-right: auto;margin-bottom: 0;">
+									<div class="input-group-prepend my-2">
+										<span class="input-group-text"> <i class="fa fa-id-card"></i> </span><label class="ml-2 pt-2">@Model.FirstName</label>
+									</div>
+									<div class="input-group-prepend my-2">
+										<span class="input-group-text"> <i class="far fa-id-card"></i> </span><label class="ml-2 pt-2">@Model.LastName</label>
+									</div>
+									<div class="input-group-prepend my-2">
+										<span class="input-group-text"> <i class="fa fa-envelope"></i> </span><label class="ml-2 pt-2">@Model.Email</label>
+									</div>
+									<div class="input-group-prepend my-2">
+										<span class="input-group-text"> <i class="fas fa-phone"></i> </span><label class="ml-2 pt-2">@Model.PhoneNumber</label>
+									</div>
+								</div>
+								<div style="margin-right: auto;margin-left: auto;">
+									<div class="input-group-prepend my-2">
+										<span class="input-group-text"> <i class="fa fa-road"></i> </span><label class="ml-2 pt-2">@Model.Street</label>
+									</div>
+									<div class="input-group-prepend my-2">
+										<span class="input-group-text"> <i class="fas fa-home"></i> </span><label class="ml-2 pt-2">@Model.ApartmentNumber</label>
+									</div>
+									<div class="input-group-prepend my-2">
+										<span class="input-group-text"> <i class="fas fa-archive"></i> </span><label class="ml-2 pt-2">@Model.Postcode</label>
+									</div>
+									<div class="input-group-prepend my-2">
+										<span class="input-group-text"> <i class="fa fa-building"></i> </span><label class="ml-2 pt-2">@Model.City</label>
+									</div>
+								</div>
+							</div>
+						</div> <!-- card-body.// -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-md-7">
+				<div class="card mb-2">
+					<header class="card-header">
+						<a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
+							<i class="icon-control fa fa-chevron-down fa-2x text-dark"></i>
+							<h3 class="text-dark">My Auctions</h3>
+						</a>
+					</header>
+					<div class="filter-content collapse hide" id="collapse_1" style="">
+						<div class="card-body">
+							&lt;List of items currently for sale by this user&gt;
+							<hr />
+							&lt;List of items currently for lend by this user&gt;
+						</div> <!-- card-body.// -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-md-7">
+				<div class="card mb-2">
+					<header class="card-header">
+						<a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
+							<i class="icon-control fa fa-chevron-down fa-2x text-dark"></i>
+							<h3 class="text-dark">Past Auctions</h3>
+						</a>
+					</header>
+					<div class="filter-content collapse hide" id="collapse_2" style="">
+						<div class="card-body">
+							&lt;List of items bought by this user&gt;
+							<hr />
+							&lt;List of items sold by this user&gt;
+						</div> <!-- card-body.// -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-md-7">
+				<div class="card mb-2">
+					<header class="card-header">
+						<a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
+							<i class="icon-control fa fa-chevron-down fa-2x text-dark"></i>
+							<h3 class="text-dark">Lends and Borrows</h3>
+						</a>
+					</header>
+					<div class="filter-content collapse hide" id="collapse_3" style="">
+						<div class="card-body">
+							&lt;List of items currently lent to someone by this user&gt;
+							<hr />
+							&lt;List of items currently borrowed from someone by this user&gt;
+						</div> <!-- card-body.// -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-md-7">
+				<div class="card mb-2">
+					<header class="card-header">
+						<a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
+							<i class="icon-control fa fa-chevron-down fa-2x text-dark"></i>
+							<h3 class="text-dark">Actions</h3>
+						</a>
+					</header>
+					<div class="filter-content collapse hide" id="collapse_4" style="">
+						<div class="card-body">
+							<div class="row justify-content-center">
+								<form method="get" asp-controller="MyProfile" asp-action="EditPersonalData" class="mx-1">
+									<button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-outline-primary ">Change data</button>
+								</form>
+								<form method="get" asp-controller="MyProfile" asp-action="EditEmail" class="mx-1">
+									<button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-outline-primary ">Change email</button>
+								</form>
+								<form method="get" asp-controller="MyProfile" asp-action="EditPassword" class="mx-1">
+									<button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-outline-primary ">Change password</button>
+								</form>
+								<form method="get" asp-controller="MyProfile" asp-action="CloseAccount" class="mx-1">
+									<button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-outline-primary ">Close account</button>
+								</form>
+							</div>
+						</div> <!-- card-body.// -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
