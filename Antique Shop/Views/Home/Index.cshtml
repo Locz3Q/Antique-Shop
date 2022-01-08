@@ -1,7 +1,7 @@
 ﻿@{
-    ViewData["Title"] = "Home";
+	ViewData["Title"] = "Home";
 }
-@model IEnumerable<Antique_Shop.Models.Auction>
+@model  Tuple<IEnumerable<Auction>, Dictionary<string, int>>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -29,25 +29,6 @@
 					</article> <!-- filter-group  .// -->
 					<article class="filter-group">
 						<header class="card-header">
-							<a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
-								<i class="icon-control fa fa-chevron-down"></i>
-								<h6 class="title">Genres</h6>
-							</a>
-						</header>
-						<div class="filter-content collapse show" id="collapse_2" style="">
-							<div class="card-body">
-								<label class="custom-control custom-checkbox">
-									<input type="checkbox" checked="" class="custom-control-input">
-									<div class="custom-control-label">
-										Category-name
-										<b class="badge badge-pill badge-light float-right">no.</b>
-									</div>
-								</label>
-							</div> <!-- card-body.// -->
-						</div>
-					</article> <!-- filter-group .// -->
-					<article class="filter-group">
-						<header class="card-header">
 							<a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
 								<i class="icon-control fa fa-chevron-down"></i>
 								<h6 class="title">Price range </h6>
@@ -63,8 +44,29 @@
 										<input class="form-control" placeholder="Max" type="number">
 									</div>
 								</div> <!-- form-row.// -->
-								<button class="btn btn-block btn-primary">Apply</button>
 							</div><!-- card-body.// -->
+						</div>
+					</article> <!-- filter-group .// -->
+					<article class="filter-group">
+						<header class="card-header">
+							<a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
+								<i class="icon-control fa fa-chevron-down"></i>
+								<h6 class="title">Genres</h6>
+							</a>
+						</header>
+						<div class="filter-content collapse hide" id="collapse_2" style="">
+							<div class="card-body">
+								@foreach (var cat in Model.Item2)
+								{
+									<label class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input">
+										<div class="custom-control-label">
+											@cat.Key
+											<b class="badge badge-pill badge-light float-right">@cat.Value</b>
+										</div>
+									</label>
+								}
+							</div> <!-- card-body.// -->
 						</div>
 					</article> <!-- filter-group .// -->
 					<article class="filter-group">
@@ -93,6 +95,11 @@
 							</div><!-- card-body.// -->
 						</div>
 					</article> <!-- filter-group .// -->
+					<article class="">
+						<header class="card-header bg-white border-top">
+							<button class="btn btn-block btn-primary">Apply Filters</button>
+						</header>
+					</article> <!-- filter-group .// -->
 				</div> <!-- card.// -->
 
 			</aside>
@@ -118,7 +125,7 @@
 				</header><!-- sect-heading -->
 
 				<div class="row">
-					@foreach (var auction in Model)
+					@foreach (var auction in Model.Item1)
 					{
 						var imagePath = "~/images/" + (auction.ImagePath ?? "noimage.jpg");
 						<div class="col-md-4">
@@ -139,7 +146,7 @@
 						</div> <!-- col.// -->
 					}
 				</div> <!-- row end.// -->
-					
+
 
 				<nav class="mt-4">
 					<ul class="pagination">
@@ -154,45 +161,5 @@
 			</main>
 		</div>
 	</div>
-
-
-
-	<!--
-
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3 mx-auto" style="background-color:red;">a</div>
-			<div class="col-lg-8 mx-auto" style="background-color:green;">
-	<ul class="list-group shadow">
-		@foreach (var auction in Model)
-		{
-			var imagePath = "~/images/" + (auction.ImagePath ?? "noimage.jpg");
-			<li class="list-group-item">
-				<div class="media align-items-lg-center flex-column flex-lg-row p-3">
-					<div class="media-body order-2 order-lg-1">
-						<h5 class="mt-0 font-weight-bold mb-2">@auction.Name</h5>
-						<p class="font-italic text-muted mb-0 small">Author: Author</p>
-						<p class="font-italic text-muted mb-0 small">Category: @auction.Category</p>
-						<p class="font-italic text-muted mb-0 small"> Release Date: @auction.ReleaseDate</p>
-						<div class="d-flex align-items-center justify-content-between mt-1">
-							<h6 class="font-weight-bold my-2">PLN @auction.Price</h6>
-							<ul class="list-inline small">
-								<li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-								<li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-								<li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-								<li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-								<li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-							</ul>
-						</div>
-					</div><img src="@imagePath" asp-append-version="true" width="150" class="ml-lg-5 order-1 order-lg-2">
-				</div>
-			</li>
-		}
-	</ul>
-	</div>
-	<div class="col-lg-1 mx-auto" style="background-color:blue;">a</div>
-	</div>
-	</div>
-	-->
 </body>
 </html>
