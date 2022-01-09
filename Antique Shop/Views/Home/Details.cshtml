@@ -1,15 +1,19 @@
 ﻿@{
     ViewData["Title"] = "Details";
 }
-<h1>@ViewData["Title"]</h1>
 
 @model Antique_Shop.Models.Auction
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Details</title>
-</head>
+
 <body>
-    @Model.Id
+	<div class="row justify-content-center">
+		<div class="col-md-7">
+			<div class="jumbotron shadow-lg p-3 mb-5 bg-white rounded">
+				<h1 style="text-align: center;">@Model.Name</h1><br />
+				https://localhost:44303/Home/Details/3
+			</div>
+		</div>
+	</div>
 </body>
 </html>
