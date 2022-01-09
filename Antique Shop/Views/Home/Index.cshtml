@@ -97,7 +97,7 @@
 					</article> <!-- filter-group .// -->
 					<article class="">
 						<header class="card-header bg-white border-top">
-							<button class="btn btn-block btn-primary">Apply Filters</button>
+							<button class="btn btn-block btn-dark">Apply Filters</button>
 						</header>
 					</article> <!-- filter-group .// -->
 				</div> <!-- card.// -->
@@ -109,15 +109,17 @@
 					<div class="form-inline">
 						<span class="mr-md-auto"></span>
 						<select class="mr-2 form-control">
-							<option>Most popular</option>
+							<option>Default view</option>
+							<option>Title ascending</option>
+							<option>Title descending</option>
 							<option>Price ascending</option>
 							<option>Price descending</option>
 						</select>
 						<div class="btn-group">
-							<a href="#" class="btn btn-outline-secondary" data-toggle="tooltip" title="" data-original-title="List view">
+							<a href="#" class="btn btn-outline-dark" data-toggle="tooltip" title="" data-original-title="List view">
 								<i class="fa fa-bars"></i>
 							</a>
-							<a href="#" class="btn  btn-outline-secondary active" data-toggle="tooltip" title="" data-original-title="Grid view">
+							<a href="#" class="btn  btn-outline-dark active" data-toggle="tooltip" title="" data-original-title="Grid view">
 								<i class="fa fa-th"></i>
 							</a>
 						</div>
@@ -134,13 +136,11 @@
 									<img src="@imagePath" asp-append-version="true" class="img-fluid">
 								</div> <!-- img-wrap.// -->
 								<figcaption class="info-wrap">
-									<div class="fix-height">
-										<a href="#" class="title">@auction.Name</a>
-										<div class="">
-											<span class=""><k>@auction.Price</k>zł</span>
-										</div> <!-- price-wrap.// -->
+									<div class="fix-height mb-2">
+										<div class="text-lg-left">@auction.Name</div>
+										<div class="text-dark"><k>@auction.Price</k>zł</div>
 									</div>
-									<a href="#" class="btn btn-block btn-primary">View Product </a>
+									<a href="#" class="btn btn-block btn-dark">View Product </a>
 								</figcaption>
 							</figure>
 						</div> <!-- col.// -->
