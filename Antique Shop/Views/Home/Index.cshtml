@@ -143,13 +143,18 @@
 								<div class="img-wrap " style="height:350px;">
 									<img src="@imagePath" asp-append-version="true" class="img-fluid">
 								</div> <!-- img-wrap.// -->
-								<figcaption class="info-wrap">
-									<div class="fix-height mb-2">
-										<div class="text-lg-left">@auction.Name</div>
-										<div class="text-dark"><k>@auction.Price</k>zł</div>
-									</div>
-									<a href="#" class="btn btn-block btn-dark">View Product </a>
-								</figcaption>
+                                <figcaption class="info-wrap">
+                                    <div class="fix-height mb-2">
+                                        <div class="text-lg-left">@auction.Name</div>
+                                        <div class="text-dark"><k>@auction.Price</k>zł</div>
+                                    </div>
+                                    <form method="post">
+                                        <button type="submit" asp-action="Details(@auction.Id)" method="post" asp-controller="Home"
+                                                class="btn btn-block btn-dark">
+                                            View Product
+                                        </button>
+                                    </form>
+                                </figcaption>
 							</figure>
 						</div> <!-- col.// -->
 					}
