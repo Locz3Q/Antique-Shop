@@ -1,6 +1,7 @@
 ﻿@{
 	ViewData["Title"] = "Home";
 }
+
 @model  Tuple<IEnumerable<Auction>, Dictionary<string, int>>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -133,15 +134,20 @@
 								<div class="img-wrap " style="height:350px;">
 									<img src="@imagePath" asp-append-version="true" class="img-fluid">
 								</div> <!-- img-wrap.// -->
-								<figcaption class="info-wrap">
-									<div class="fix-height">
-										<a href="#" class="title">@auction.Name</a>
-										<div class="">
-											<span class=""><k>@auction.Price</k>zł</span>
-										</div> <!-- price-wrap.// -->
-									</div>
-									<a href="#" class="btn btn-block btn-primary">View Product </a>
-								</figcaption>
+                                <figcaption class="info-wrap">
+                                    <div class="fix-height">
+                                        <a href="#" class="title">@auction.Name</a>
+                                        <div class="">
+                                            <span class=""><k>@auction.Price</k>zł</span>
+                                        </div> <!-- price-wrap.// -->
+                                    </div>
+                                    <form method="post">
+                                        <button type="submit" asp-action="Details(@auction.Id)" method="post" asp-controller="Home"
+                                                class="btn btn-block btn-primary">
+                                            View Product
+                                        </button>
+									</form>
+                                </figcaption>
 							</figure>
 						</div> <!-- col.// -->
 					}

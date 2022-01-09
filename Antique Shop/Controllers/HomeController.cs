@@ -31,15 +31,20 @@ namespace Antique_Shop.Controllers
                 dictionary.Add(name, 0);
             }
 
-            foreach (var a in auction)
-            {
-                dictionary[a.Category.ToString()]++;
-            }
+           // foreach (var a in auction)
+          //  {
+          //      dictionary[a.Category.ToString()]++;
+          //  }
             //
 
             return View(new Tuple<IEnumerable<Auction>, Dictionary<string, int>>(auction,dictionary));
         }
-
+        
+        public IActionResult Details(int id)
+        {
+            var selectedAuction = auctionRepository.GetAuction(id);
+            return View(selectedAuction);
+        }
 
         public IActionResult About()
         {
