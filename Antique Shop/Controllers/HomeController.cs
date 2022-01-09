@@ -40,6 +40,7 @@ namespace Antique_Shop.Controllers
             return View(new Tuple<IEnumerable<Auction>, Dictionary<string, int>>(auction,dictionary));
         }
         
+        
         public IActionResult Details(int id)
         {
             var selectedAuction = auctionRepository.GetAuction(id);
