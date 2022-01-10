@@ -82,8 +82,9 @@ namespace Antique_Shop.Controllers
                 if (!result.Succeeded)
                     return View();
                 //@todo
-                //var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
-               // await userManager.ChangeEmailAsync(user, model.Email, token);
+                var token = await userManager.GenerateChangeEmailTokenAsync(user, model.Email);
+                var s   = await userManager.ChangeEmailAsync(user, model.Email, token);
+                Console.WriteLine(s); 
                 return RedirectToAction("Index");
             }
             return View();
@@ -98,7 +99,7 @@ namespace Antique_Shop.Controllers
         [HttpPost]
         public async Task<IActionResult> EditPassword(PasswordViewModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && model.Password != model.NewPassword)
             {
                 var user = await userManager.GetUserAsync(HttpContext.User);
                 var passwordValidator = new PasswordValidator<Account>();
@@ -107,7 +108,6 @@ namespace Antique_Shop.Controllers
                     return View();
 
                 await userManager.ChangePasswordAsync(user, model.Password, model.NewPassword);
-
                 await signInManager.RefreshSignInAsync(user);
                 return RedirectToAction("Index");
             }
