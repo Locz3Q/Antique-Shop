@@ -1,7 +1,7 @@
 ﻿@{
 	ViewData["Title"] = "Home";
 }
-@model Tuple<IEnumerable<Auction>, Dictionary<string, int>>
+@model Tuple<IEnumerable<Auction>, Dictionary<Category, int>>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -66,7 +66,7 @@
 									<label class="custom-control custom-checkbox">
 										<input type="checkbox" class="custom-control-input">
 										<div class="custom-control-label">
-											@cat.Key
+											@cat.Key.ToString()
 											<b class="badge badge-pill badge-light float-right">@cat.Value</b>
 										</div>
 									</label>

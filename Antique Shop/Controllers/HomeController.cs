@@ -25,19 +25,19 @@ namespace Antique_Shop.Controllers
             var auction = auctionRepository.GetAllAuctions();
 
             // Dodane przez Roberta - mapa, w której klucze to nazwy kategorii, a wartości to wszystkie książki z tej kategorii w bazie
-            Dictionary<string, int> dictionary = new Dictionary<string, int>();
-            foreach(string name in Enum.GetNames(typeof(Category)))
+            Dictionary<Category, int> dictionary = new Dictionary<Category, int>();
+            foreach(Category category in Enum.GetValues(typeof(Category)))
             {
-                dictionary.Add(name, 0);
+                dictionary.Add(category, 0);
             }
 
-            //foreach (var a in auction)
-            //{
-          //      dictionary[a.Category.ToString()]++;
-        //    }
-            //
+            foreach (var a in auction)
+            {
+                if(dictionary.ContainsKey((Category)a.Category)) dictionary[(Category) a.Category]++;
+            }
+            
 
-            return View(new Tuple<IEnumerable<Auction>, Dictionary<string, int>>(auction,dictionary));
+            return View(new Tuple<IEnumerable<Auction>, Dictionary<Category, int>>(auction,dictionary));
         }
         
         
