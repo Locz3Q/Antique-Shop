@@ -10,18 +10,19 @@ namespace Antique_Shop.ViewModel
     {
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Email is required!")]
-        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$")]
+        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$", ErrorMessage = "Entered email is not valid!")]
         public string Email { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Login is required!")]
         [MinLength(5, ErrorMessage ="Login can not be shorter than 5!")]
         public string Login { get; set; }
 
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d]).{8,}$", ErrorMessage = "Password must have a letter, a number, a special symbol and at least 8 characters!")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Password is required!")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "First Name is required!")]
-        [MinLength(3, ErrorMessage = "First Name can not be shorter than 5!")]
+        [MinLength(3, ErrorMessage = "First Name can not be shorter than 3!")]
         public string FirstName { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Last Name is required!")]
         [MinLength(3, ErrorMessage = "Last Name can not be shorter than 3!")]
