@@ -32,8 +32,6 @@ namespace Antique_Shop.Models
             return account;
         }
 
-    
-
         public Account Update(Account accountUpdate)
         {
             var account = dbContext.Accounts.Attach(accountUpdate);
