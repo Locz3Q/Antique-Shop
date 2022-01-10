@@ -114,6 +114,13 @@ namespace Antique_Shop.Controllers
             return View();
         }
 
-        
+        [HttpGet]
+        public IActionResult CloseAccount()
+        {
+            return RedirectToAction("Index");
+            
+        }
+
+
     }
 }
