@@ -19,6 +19,7 @@ namespace Antique_Shop.Models
         public string ImagePath { get; set; }
         public string Description { get; set; }
         public string AccountId { get; set; }
+        //public int lendPeriodDays { get; set; }
        
         [ForeignKey("AccountId")]
         public virtual Account Account { get; set; }

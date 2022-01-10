@@ -32,7 +32,7 @@
 										<label class="ml-2 pt-2 text-white">a</label>
 									</div>
 									<div class="input-group-prepend my-2">
-										<span class="input-group-text"> <i class="fas fa-phone"></i> </span><input asp-for="PhoneNumber" class="form-control ml-1" value="@Model.PhoneNumber" style="max-width:120px;" />
+										<span class="input-group-text"> <i class="fas fa-phone"></i> </span><input asp-for="PhoneNumber" class="form-control ml-1" value="@Model.PhoneNumber" />
 									</div>
 								</div>
 								<div class="mx-auto my-0">
@@ -51,7 +51,7 @@
 								</div>
 							</div>
 							<div class="row justify-content-center">
-								<button type="submit" class="btn btn-outline-dark btn-sm mx-1">Cancel</button>
+								<button type="submit" class="btn btn-outline-dark btn-sm mx-1"  asp-action="Index" method="post" asp-controller="MyProfile">Cancel</button>
 								<button type="submit" class="btn btn-outline-dark btn-sm mx-1">Change data</button>
 							</div>
 						</div>
