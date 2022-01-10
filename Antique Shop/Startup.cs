@@ -28,12 +28,17 @@ namespace Antique_Shop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<Account, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<Account, IdentityRole>(options =>
+            {
+                options.SignIn.RequireConfirmedEmail = false;
+            })
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultTokenProviders();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddScoped<IAccountRepository,AccountRepositorySQL>();
             services.AddScoped<IAuctionRepository, AuctionRepositorySQL>();
             services.AddHttpContextAccessor();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +56,6 @@ namespace Antique_Shop
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
             app.UseAuthorization();
             app.UseAuthentication();

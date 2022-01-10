@@ -82,8 +82,9 @@ namespace Antique_Shop.Controllers
                 if (!result.Succeeded)
                     return View();
                 //@todo
-                //var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
-               // await userManager.ChangeEmailAsync(user, model.Email, token);
+                var token = await userManager.GenerateChangeEmailTokenAsync(user, model.Email);
+                var s   = await userManager.ChangeEmailAsync(user, model.Email, token);
+                Console.WriteLine(s); 
                 return RedirectToAction("Index");
             }
             return View();
