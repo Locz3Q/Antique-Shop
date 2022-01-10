@@ -10,7 +10,7 @@ namespace Antique_Shop.ViewModel
     {
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Email is required!")]
-        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$")]
+        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$", ErrorMessage = "Entered email is not valid!")]
         public string Email { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Login is required!")]
         [MinLength(5, ErrorMessage ="Login can not be shorter than 5!")]
