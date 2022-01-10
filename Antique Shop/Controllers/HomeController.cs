@@ -27,12 +27,13 @@ namespace Antique_Shop.Controllers
             // Dodane przez Roberta - mapa, w której klucze to nazwy kategorii, a wartości to wszystkie książki z tej kategorii w bazie
             Dictionary<Category, int> dictionary = new Dictionary<Category, int>();
             foreach(Category category in Enum.GetValues(typeof(Category)))
-            {
+            { 
                 dictionary.Add(category, 0);
             }
 
             foreach (var a in auction)
             {
+                if(a.Category != null)
                 if(dictionary.ContainsKey((Category)a.Category)) dictionary[(Category) a.Category]++;
             }
             
