@@ -21,14 +21,17 @@
 					<article class="filter-group">
 						<div class="filter-content collapse show" id="collapse_1" style="">
 							<div class="card-body">
-								<form class="pb-3">
-									<div class="input-group">
-										<input type="text" class="form-control" placeholder="Search">
-										<div class="input-group-append">
-											<button class="btn btn-light" type="button"><i class="fa fa-search"></i></button>
-										</div>
-									</div>
-								</form>
+                                <form class="pb-3">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search" id="searchInput">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-light" type="button"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                    
+
+
+                                </form>
 							</div> <!-- card-body.// -->
 						</div>
 					</article> <!-- filter-group  .// -->
@@ -51,7 +54,10 @@
 								</div> <!-- form-row.// -->
 							</div><!-- card-body.// -->
 						</div>
-					</article> <!-- filter-group .// -->
+
+						
+					
+						</article> <!-- filter-group .// -->
 					<article class="filter-group">
 						<header class="card-header">
 							<a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
@@ -138,17 +144,17 @@
 					@foreach (var auction in Model.Item1)
 					{
 						var imagePath = "~/images/" + (auction.ImagePath ?? "noimage.jpg");
-						<div class="col-md-4">
-							<figure class="card card-product-grid">
-								<div class="img-wrap " >
+						<div class="col-md-4 "> 
+							<figure class="card card-product-grid d-flex align-items-start flex-column" style="height: 100%;">
+								<div class="img-wrap mb-auto p-2" >
 									<img src="@imagePath" asp-append-version="true" class="img-fluid">
 								</div> <!-- img-wrap.// -->
                                 <figcaption class="info-wrap">
-                                    <div class="fix-height mb-2">
+                                    <div class="fix-height mb-2 p-2">
                                         <div class="text-lg-left">@auction.Name</div>
                                         <div class="text-dark"><k>@auction.Price</k>zł</div>
                                     </div>
-                                    <form method="post">
+                                    <form method="post" class="p-2">
                                         <button type="submit" asp-action="Details" asp-route-id="@auction.Id" method="post" asp-controller="Home" class="btn btn-block btn-dark">
                                             View Product
                                         </button>
