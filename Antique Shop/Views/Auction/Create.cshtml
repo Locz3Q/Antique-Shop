@@ -4,9 +4,13 @@
 @model Antique_Shop.ViewModels.AuctionViewModel;
 
 <form enctype="multipart/form-data" asp-controller="Auction" asp-action="Create" method="post">
-    <div class="col-md-12 container py-5 jumbotron shadow-lg p-3 mb-5 bg-white rounded font-weight-light text-muted">
-        <div class="row py-4 ">
-            <div class="col-lg-6 ">
+    <div class="container py-5 jumbotron shadow-lg p-3 mb-5 bg-white rounded font-weight-light text-muted">
+        <div class="mx-auto">
+            <h1>New Auction</h1>
+        </div>
+        <div class="row py-4">
+            
+            <div class="col-lg-6 mb-3">
 
                 <div class="input-group mb-1 px-1 py-1 rounded-pill bg-black shadow-sm">
                     <input asp-for="Image" id="upload" type="file" onchange="readURL(this);" class="form-control border-0" style="opacity: 0;">
@@ -22,10 +26,15 @@
             </div>
 
 
-            <div style="margin-right: auto;
-                                margin-left: auto;">
+            <div class="mx-auto">
                 <div class="form-group">
                     <input class="form-control" asp-for="Name" placeholder="Name" />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Author" /> <!--asp-for="Author"-->
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="ISBN" />   <!--asp-for="ISBN"-->
                 </div>
                 <div class="form-group">
                     <input class="form-control" asp-for="ReleaseDate" placeholder="Release date" />
@@ -37,19 +46,23 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <select class="form-control" asp-for="Category"
+                            asp-items="Html.GetEnumSelectList<Condition>()">
+                        <option value="">Book Condition</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <input class="form-control" asp-for="Price" placeholder="Price" />
                 </div>
                 <div class="form-group">
                     <input class="form-control" asp-for="Description" placeholder="Description" />
                 </div>
 
-                <div class="form-group row">
-                    <div class="col-sm-10" style="width:100%;display:flex;justify-content:flex-end;align-content:flex-end">
+                <div class="form-group" style="width: 100%; display: flex; justify-content: center; align-content: center">
+                    <div class="col-sm-10" style="width: 100%; display: flex; justify-content: center; align-content: center">
                         <button id="Button" type="submit" name="submit" formmethod="post" class="btn btn-outline-primary btn-sm">Create</button>
                     </div>
                 </div>
-
-
             </div>
 
         </div>
