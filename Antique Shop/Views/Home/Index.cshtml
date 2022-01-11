@@ -154,7 +154,7 @@
                                         <div class="text-lg-left">@auction.Name</div>
                                         <div class="text-dark"><k>@auction.Price</k>zł</div>
                                     </div>
-                                    <form method="post" class="p-2">
+                                    <form method="get" class="p-2">
                                         <button type="submit" asp-action="Details" asp-route-id="@auction.Id" method="post" asp-controller="Home" class="btn btn-block btn-dark">
                                             View Product
                                         </button>
