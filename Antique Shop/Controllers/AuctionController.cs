@@ -8,18 +8,31 @@ using Microsoft.AspNetCore.Identity;
 using Antique_Shop.ViewModels;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 namespace Antique_Shop.Controllers
 {
     public class AuctionController : Controller
     {
         private readonly IAuctionRepository auctionRepository;
+        private readonly ISoldAuctionRepository soldAuctionRepository;
         private readonly IHostingEnvironment hostingEnvironment;
+        private readonly IHttpContextAccessor httpContextAccessor;
 
-        public AuctionController(IAuctionRepository auctionRepository, IHostingEnvironment hostingEnvironment)
+
+
+        public string GetCurrentUserId()
+        {
+            var userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return userId;
+        }
+        public AuctionController(IAuctionRepository auctionRepository, ISoldAuctionRepository soldAuctionRepository, IHostingEnvironment hostingEnvironment, IHttpContextAccessor httpContextAccessor)
         {
             this.auctionRepository = auctionRepository;
+            this.soldAuctionRepository = soldAuctionRepository;
             this.hostingEnvironment = hostingEnvironment;
+            this.httpContextAccessor = httpContextAccessor;
         }
 
 
@@ -56,10 +69,15 @@ namespace Antique_Shop.Controllers
             }
             return View();
         }
-        /*   [HttpGet]
-           public IActionResult Buy(AuctionViewModel auctionViewModel)
+           [HttpPost]
+           public IActionResult Buy(int id)
            {
-               return View();
-           }*/
+            var auction = auctionRepository.GetAuction(id);
+            string buyerId = this.GetCurrentUserId();
+            SoldAuction soldAuction = new SoldAuction(auction, buyerId);
+            soldAuctionRepository.Add(soldAuction);
+            auctionRepository.Delete(id);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
