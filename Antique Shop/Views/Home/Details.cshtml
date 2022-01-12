@@ -78,9 +78,13 @@
 					</div>
 					<hr />
 					<div class="row">
-						<div class="col-sm-12 col-md-6 col-lg-6">
-							<a href="javascript:void(0);" class="btn btn-success btn-lg">Buy</a>
-						</div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <form method="post">
+                                <button type="submit" asp-controller="Auction" asp-action="Buy" asp-route-id="@Model.Id" class="btn btn-success btn-lg">
+                                    Buy
+                                </button>
+                                </form>
+                        </div>
 					</div>
 				</div>
 			</div>

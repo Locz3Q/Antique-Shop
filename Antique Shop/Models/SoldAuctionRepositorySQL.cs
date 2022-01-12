@@ -26,7 +26,7 @@ namespace Antique_Shop.Models
 
         public SoldAuction Add(SoldAuction auction)
         {
-            dbContext.Auctions.Add(auction);
+            dbContext.SoldAuctions.Add(auction);
             dbContext.SaveChanges();
             return auction;
         }

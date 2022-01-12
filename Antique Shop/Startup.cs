@@ -37,6 +37,7 @@ namespace Antique_Shop
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddScoped<IAccountRepository,AccountRepositorySQL>();
             services.AddScoped<IAuctionRepository, AuctionRepositorySQL>();
+            services.AddScoped<ISoldAuctionRepository, SoldAuctionRepositorySQL>();
             services.AddHttpContextAccessor();
             
         }

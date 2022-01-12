@@ -74,10 +74,30 @@ namespace Antique_Shop.Controllers
            {
             var auction = auctionRepository.GetAuction(id);
             string buyerId = this.GetCurrentUserId();
-            SoldAuction soldAuction = new SoldAuction(auction, buyerId);
+            if(buyerId == auction.SellerId)
+            {
+                return View();
+            }
+            else 
+            { 
+            SoldAuction soldAuction = new SoldAuction{
+           // Id = auction.Id,
+            Name = auction.Name,
+            ReleaseDate = auction.ReleaseDate,
+            Category = auction.Category,
+            Price = auction.Price,
+            ImagePath = auction.ImagePath,
+            Description = auction.Description,
+            SellerId = auction.SellerId,
+            Author = auction.Author,
+            ISBN = auction.ISBN,
+            Condition = auction.Condition,
+            BuyerId = buyerId
+            };
             soldAuctionRepository.Add(soldAuction);
             auctionRepository.Delete(id);
             return RedirectToAction("Index", "Home");
+        }
         }
     }
 }
