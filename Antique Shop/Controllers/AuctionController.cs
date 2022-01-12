@@ -34,7 +34,7 @@ namespace Antique_Shop.Controllers
             if (ModelState.IsValid)
             {
                 string fileName = null;
-                if(auctionViewModel.Image != null)
+                if (auctionViewModel.Image != null)
                 {
                     string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "images");
                     fileName = Guid.NewGuid().ToString() + "_" + auctionViewModel.Image.FileName;
@@ -50,12 +50,16 @@ namespace Antique_Shop.Controllers
                     ImagePath = fileName,
                     Description = auctionViewModel.Description
                 };
-                
+
                 auctionRepository.Add(auction);
                 return RedirectToAction("Index", "Home");
             }
             return View();
         }
-
+        /*   [HttpGet]
+           public IActionResult Buy(AuctionViewModel auctionViewModel)
+           {
+               return View();
+           }*/
     }
 }

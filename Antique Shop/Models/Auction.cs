@@ -18,13 +18,13 @@ namespace Antique_Shop.Models
         public float Price { get; set; }
         public string ImagePath { get; set; }
         public string Description { get; set; }
-        public string AccountId { get; set; }
+        public string SellerId { get; set; }
         //public int lendPeriodDays { get; set; }
         public string Author { get; set; }
         public string ISBN { get; set; }
         public string Condition { get; set; }
 
-        [ForeignKey("AccountId")]
-        public virtual Account Account { get; set; }
+        [ForeignKey("SellerId")]
+        public virtual Account SellerAccount { get; set; }
     }
 }

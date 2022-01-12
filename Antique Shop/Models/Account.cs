@@ -19,6 +19,7 @@ namespace Antique_Shop.Models
         public float Saldo { get; set; }
         public DateTime AccountCreateDate { get; set; }
         public virtual ICollection<Auction> Auctions { get; set; }
+        public virtual ICollection<SoldAuction> SoldAuctions { get; set; }
 
     }
 }

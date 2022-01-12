@@ -31,7 +31,7 @@ namespace Antique_Shop.Models
         {
             // var user = UserManager.FindById(User.Identity.GetUserId());
             // Account currentUser = dbContext.Users.FirstOrDefault(x => x.Id == currentUserId);
-            auction.AccountId = this.GetCurrentUserId();
+            auction.SellerId = this.GetCurrentUserId();
             dbContext.Auctions.Add(auction);
             dbContext.SaveChanges();
             return auction;
