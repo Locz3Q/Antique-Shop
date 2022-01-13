@@ -21,15 +21,15 @@ namespace Antique_Shop.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Auction>()
-    .HasOne(auc => auc.SellerAccount)
-    .WithMany(acc => acc.Auctions)
-    .HasForeignKey(auc => auc.SellerId);
+            modelBuilder.Entity<Auction>().ToTable("Auctions");
+            // .HasOne(auc => auc.SellerAccount)
+            //  .WithMany(acc => acc.Auctions)
+            //  .HasForeignKey(auc => auc.SellerId) ;
 
-            modelBuilder.Entity<SoldAuction>()
-        .HasOne(auc => auc.BuyerAccount)
-        .WithMany(acc => acc.SoldAuctions)
-        .HasForeignKey(auc => auc.BuyerId);
+            modelBuilder.Entity<SoldAuction>().ToTable("SoldAuctions");
+     //   .HasOne(auc => auc.BuyerAccount)
+    //    .WithMany(acc => acc.SoldAuctions)
+     //   .HasForeignKey(auc => auc.BuyerId);
         }
     }
 }

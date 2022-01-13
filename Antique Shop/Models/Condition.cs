@@ -8,6 +8,6 @@ namespace Antique_Shop.Models
     public enum Condition
     {
         Used, 
-        Unused
+        New
     }
 }

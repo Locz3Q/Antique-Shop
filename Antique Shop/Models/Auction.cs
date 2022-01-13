@@ -19,12 +19,12 @@ namespace Antique_Shop.Models
         public string ImagePath { get; set; }
         public string Description { get; set; }
         public string SellerId { get; set; }
-        //public int lendPeriodDays { get; set; }
+        public int lendPeriod { get; set; } //in days
         public string Author { get; set; }
         public string ISBN { get; set; }
-        public string Condition { get; set; }
+        public Condition? Condition { get; set; }
 
-        [ForeignKey("SellerId")]
-        public virtual Account SellerAccount { get; set; }
+     //   [ForeignKey("SellerId")]
+    //    public virtual Account SellerAccount { get; set; }
     }
 }
