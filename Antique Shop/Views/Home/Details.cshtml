@@ -50,7 +50,7 @@
 				<div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
 					<h2 class="name">
 						@Model.Name
-						<small class="mt-1">by Model.Author</small>
+						<small class="mt-1">by @Model.Author</small>
 					</h2>
 					<hr />
 					<h3 class="price-container">
@@ -65,10 +65,10 @@
 						<div id="myTabContent" class="tab-content">
 							<div class="tab-pane fade active in" id="specifications">
 								<br />
-								<h4><label>ISBN:</label> 978-3-16-148410-0</h4>
+								<h4><label>ISBN:</label> @Model.ISBN</h4>
 								<h4><label>Release Date:</label> @Model.ReleaseDate</h4>
 								<h4><label>Genre:</label> @Model.Category.ToString()</h4>
-								<h4><label>State:</label> New</h4>
+								<h4><label>Condition:</label> @Model.Condition</h4>
 							</div>
 							<div class="tab-pane fade" id="more-information">
 								<br />

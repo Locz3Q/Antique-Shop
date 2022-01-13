@@ -97,7 +97,44 @@ namespace Antique_Shop.Controllers
             soldAuctionRepository.Add(soldAuction);
             auctionRepository.Delete(id);
             return RedirectToAction("Index", "Home");
+            }
         }
+        [HttpGet]
+        public ViewResult CreateLend()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateLend(AuctionLendViewModel auctionLendViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                string fileName = null;
+                if (auctionLendViewModel.Image != null)
+                {
+                    string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "images");
+                    fileName = Guid.NewGuid().ToString() + "_" + auctionLendViewModel.Image.FileName;
+                    string filePath = Path.Combine(uploadsFolder, fileName);
+                    auctionLendViewModel.Image.CopyTo(new FileStream(filePath, FileMode.Create));
+                }
+                Auction auction = new Auction
+                {
+                    Name = auctionLendViewModel.Name,
+                    ReleaseDate = auctionLendViewModel.ReleaseDate,
+                    Category = auctionLendViewModel.Category,
+                    Price = auctionLendViewModel.Price,
+                    ImagePath = fileName,
+                    Description = auctionLendViewModel.Description,
+                    Author = auctionLendViewModel.Author,
+                    ISBN = auctionLendViewModel.ISBN,
+                    Condition = auctionLendViewModel.Condition,
+                    lendPeriod = auctionLendViewModel.lendPeriod
+                };
+
+                auctionRepository.Add(auction);
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
         }
     }
 }
