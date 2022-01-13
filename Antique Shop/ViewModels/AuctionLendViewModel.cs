@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Antique_Shop.ViewModels
 {
-    public class AuctionViewModel
+    public class AuctionLendViewModel
     {
         [Required]
         public string Name { get; set; }
@@ -21,6 +21,8 @@ namespace Antique_Shop.ViewModels
         [Required]
         public string Description { get; set; }
         public string SellerId { get; set; }
+        [Required]
+        public int lendPeriod { get; set; } //in days
         [Required]
         public string Author { get; set; }
         public string ISBN { get; set; }
