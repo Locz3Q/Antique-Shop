@@ -61,7 +61,11 @@ namespace Antique_Shop.Controllers
                     Category = auctionViewModel.Category,
                     Price = auctionViewModel.Price,
                     ImagePath = fileName,
-                    Description = auctionViewModel.Description
+                    Description = auctionViewModel.Description,
+                    SellerId = auctionViewModel.SellerId,
+                    Author = auctionViewModel.Author,
+                    ISBN = auctionViewModel.ISBN,
+                    Condition = auctionViewModel.Condition
                 };
 
                 auctionRepository.Add(auction);

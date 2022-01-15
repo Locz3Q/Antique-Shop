@@ -19,10 +19,7 @@
                         <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose Image</small></label>
                     </div>
                 </div>
-
-
                 <div class="image-area mt-4" style="background-color: #eeeeee; padding: 1rem; position: relative;"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
-
             </div>
 
 
@@ -49,9 +46,9 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control"
+                    <select class="form-control" asp-for="Condition"
                             asp-items="Html.GetEnumSelectList<Condition>()">
-                        <option value="" asp-for="Condition">Choose Condition</option>
+                        <option value="">Choose Condition</option>
                     </select>
                 </div>
                 <div class="form-group">
