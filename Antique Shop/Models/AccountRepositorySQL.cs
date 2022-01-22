@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Antique_Shop.Models
 {
-    public class AccountRepositorySQL : IAccountRepository
+    public class AccountRepositorySQL : IAccountRepository, IPayment
     {
         private readonly ApplicationDbContext dbContext;
 
@@ -21,6 +21,13 @@ namespace Antique_Shop.Models
             return account;
         }
 
+        public Account AddSaldo(Account account, float number)
+        {
+            account.Saldo += number;
+            this.Update(account);
+            return account;
+        }
+
         public Account Delete(int id)
         {
             Account account = dbContext.Accounts.Find(id);
@@ -29,6 +36,22 @@ namespace Antique_Shop.Models
                 dbContext.Remove(account);
                 dbContext.SaveChanges();
             }
+            return account;
+        }
+
+        public Account MoveSaldo(Account accountBuyer, Account accountSeller, float number)
+        {
+            accountBuyer.Saldo -= number;
+            accountSeller.Saldo += number;
+            this.Update(accountBuyer);
+            this.Update(accountSeller);
+            return accountBuyer;
+        }
+
+        public Account SubtractSaldo(Account account, float number)
+        {
+            account.Saldo -= number;
+            this.Update(account);
             return account;
         }
 

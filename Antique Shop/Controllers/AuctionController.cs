@@ -19,7 +19,7 @@ namespace Antique_Shop.Controllers
         private readonly ISoldAuctionRepository soldAuctionRepository;
         private readonly IHostingEnvironment hostingEnvironment;
         private readonly IHttpContextAccessor httpContextAccessor;
-
+        private readonly UserManager<Account> userManager;
 
 
         public string GetCurrentUserId()
@@ -27,12 +27,20 @@ namespace Antique_Shop.Controllers
             var userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             return userId;
         }
-        public AuctionController(IAuctionRepository auctionRepository, ISoldAuctionRepository soldAuctionRepository, IHostingEnvironment hostingEnvironment, IHttpContextAccessor httpContextAccessor)
+        public async Task<float> GetCurrentUserSaldoAsync()
+        {
+            var userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var currentUser = await userManager.FindByIdAsync(userId);
+            return currentUser.Saldo;
+        }
+
+        public AuctionController(IAuctionRepository auctionRepository, ISoldAuctionRepository soldAuctionRepository, IHostingEnvironment hostingEnvironment, IHttpContextAccessor httpContextAccessor, UserManager<Account> userManager)
         {
             this.auctionRepository = auctionRepository;
             this.soldAuctionRepository = soldAuctionRepository;
             this.hostingEnvironment = hostingEnvironment;
             this.httpContextAccessor = httpContextAccessor;
+            this.userManager = userManager;
         }
 
 
@@ -74,12 +82,19 @@ namespace Antique_Shop.Controllers
             return View();
         }
            [HttpPost]
-           public IActionResult Buy(int id)
+           public async Task<IActionResult> BuyAsync(int id)
            {
             var auction = auctionRepository.GetAuction(id);
             string buyerId = this.GetCurrentUserId();
+            var saldo = await GetCurrentUserSaldoAsync();
             if(buyerId == auction.SellerId)
             {
+                return View();
+            }
+            else if(saldo < auction.Price)
+            {
+                //@todo
+                //error
                 return View();
             }
             else 
