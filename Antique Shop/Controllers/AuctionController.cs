@@ -20,6 +20,7 @@ namespace Antique_Shop.Controllers
         private readonly IHostingEnvironment hostingEnvironment;
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly UserManager<Account> userManager;
+        private readonly IPayment payment;
 
 
         public string GetCurrentUserId()
@@ -34,15 +35,15 @@ namespace Antique_Shop.Controllers
             return currentUser.Saldo;
         }
 
-        public AuctionController(IAuctionRepository auctionRepository, ISoldAuctionRepository soldAuctionRepository, IHostingEnvironment hostingEnvironment, IHttpContextAccessor httpContextAccessor, UserManager<Account> userManager)
+        public AuctionController(IAuctionRepository auctionRepository, ISoldAuctionRepository soldAuctionRepository, IHostingEnvironment hostingEnvironment, IHttpContextAccessor httpContextAccessor, UserManager<Account> userManager, IPayment payment)
         {
             this.auctionRepository = auctionRepository;
             this.soldAuctionRepository = soldAuctionRepository;
             this.hostingEnvironment = hostingEnvironment;
             this.httpContextAccessor = httpContextAccessor;
             this.userManager = userManager;
+            this.payment = payment;
         }
-
 
         [HttpGet]
         public ViewResult Create()
@@ -98,7 +99,10 @@ namespace Antique_Shop.Controllers
                 return View();
             }
             else 
-            { 
+            {
+                var accountSeller = await userManager.FindByIdAsync(auction.SellerId);
+                var accountBuyer = await userManager.FindByIdAsync(buyerId);
+            payment.MoveSaldo(accountBuyer,accountSeller, auction.Price);
             SoldAuction soldAuction = new SoldAuction{
            // Id = auction.Id,
             Name = auction.Name,
