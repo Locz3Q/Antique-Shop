@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Antique_Shop.Models;
 using Antique_Shop.ViewModel;
 using Antique_Shop.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,12 +18,16 @@ namespace Antique_Shop.Controllers
 
         private readonly UserManager<Account> userManager;
         private readonly SignInManager<Account> signInManager;
+        private readonly IPayment payment;
+        private readonly IHttpContextAccessor httpContextAccessor;
         public AccountController(UserManager<Account> userManager,
-            SignInManager<Account> signInManager)
+            SignInManager<Account> signInManager, IPayment payment, IHttpContextAccessor httpContextAccessor)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
-        }
+            this.payment = payment;
+            this.httpContextAccessor = httpContextAccessor;
+    }
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
@@ -89,6 +95,15 @@ namespace Antique_Shop.Controllers
         public IActionResult Registration()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddSaldo(float number)
+        {
+            var userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var currentUser = await userManager.FindByIdAsync(userId);
+            payment.AddSaldo(currentUser, number);
+            return RedirectToAction("index", "MyProfile");
         }
 
     }
