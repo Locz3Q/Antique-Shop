@@ -102,8 +102,12 @@
                 <div class="jumbotron shadow-lg p-3 bg-white rounded">
                     <h3 class="text-dark">My Wallet</h3>
                     <div class="row justify-content-center my-4 text-dark">
-                        $@account.Saldo
+                        @account.Saldo$
                     </div>
+                    <form class="row justify-content-center my-2 p-2" method="get">
+                        <input class="form-control ml-1" style="max-width:140px;" placeholder="$"/>
+                        <button id="Button" type="submit" name="submit" formmethod="get" class="btn btn-outline-dark btn-sm">Pay into wallet</button>
+                    </form>
                 </div>
                 <div class="jumbotron shadow-lg p-3 bg-white rounded">
                     <h3 class="text-dark">My Auctions</h3>
@@ -147,7 +151,7 @@
                                     <div class="card card-body">
                                         <form method="get" class="p-2">
                                             <button type="submit" asp-action="Details" asp-route-id="@auction.Id" asp-controller="Home">
-                                                <img class="mx-auto" src="@imagePath" asp-append-version="true" width="100px">
+                                                <img class="mx-auto" src="@imagePath" asp-append-version="true" width="100">
                                             </button>
                                         </form>
                                     </div>
