@@ -35,7 +35,8 @@ namespace Antique_Shop
         .AddEntityFrameworkStores<ApplicationDbContext>()
         .AddDefaultTokenProviders();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            services.AddScoped<IAccountRepository,AccountRepositorySQL>();
+            services.AddScoped<IAccountRepository, AccountRepositorySQL>();
+            services.AddScoped<IPayment, AccountRepositorySQL>();
             services.AddScoped<IAuctionRepository, AuctionRepositorySQL>();
             services.AddScoped<ISoldAuctionRepository, SoldAuctionRepositorySQL>();
             services.AddHttpContextAccessor();

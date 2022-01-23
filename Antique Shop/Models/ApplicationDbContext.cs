@@ -16,6 +16,7 @@ namespace Antique_Shop.Models
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Auction> Auctions { get; set; }
         public DbSet<SoldAuction> SoldAuctions { get; set; }
+        public DbSet<BorrowedAuction> BorrowedAuctions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,9 +28,10 @@ namespace Antique_Shop.Models
             //  .HasForeignKey(auc => auc.SellerId) ;
 
             modelBuilder.Entity<SoldAuction>().ToTable("SoldAuctions");
-     //   .HasOne(auc => auc.BuyerAccount)
-    //    .WithMany(acc => acc.SoldAuctions)
-     //   .HasForeignKey(auc => auc.BuyerId);
+            modelBuilder.Entity<BorrowedAuction>().ToTable("BorrowedAuctions");
+            //   .HasOne(auc => auc.BuyerAccount)
+            //    .WithMany(acc => acc.SoldAuctions)
+            //   .HasForeignKey(auc => auc.BuyerId);
         }
     }
 }

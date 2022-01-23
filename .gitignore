@@ -398,3 +398,4 @@ FodyWeavers.xsd
 *.sln.iml
 *.png
 /Antique Shop/wwwroot/images
+Antique Shop/Migrations/20211214162859_AddAuction.cs

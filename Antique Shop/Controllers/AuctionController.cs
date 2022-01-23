@@ -21,10 +21,12 @@ namespace Antique_Shop.Controllers
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly UserManager<Account> userManager;
         private readonly IPayment payment;
+        private readonly IBorrowedAuctionRepository borrowedAuctionRepository;
 
 
         public string GetCurrentUserId()
-        {
+        {   //@todo
+            // exception if user is not logged in
             var userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             return userId;
         }
@@ -35,7 +37,9 @@ namespace Antique_Shop.Controllers
             return currentUser.Saldo;
         }
 
-        public AuctionController(IAuctionRepository auctionRepository, ISoldAuctionRepository soldAuctionRepository, IHostingEnvironment hostingEnvironment, IHttpContextAccessor httpContextAccessor, UserManager<Account> userManager, IPayment payment)
+        public AuctionController(IAuctionRepository auctionRepository, ISoldAuctionRepository soldAuctionRepository,
+            IHostingEnvironment hostingEnvironment, IHttpContextAccessor httpContextAccessor,
+            UserManager<Account> userManager, IPayment payment, IBorrowedAuctionRepository borrowedAuctionRepository)
         {
             this.auctionRepository = auctionRepository;
             this.soldAuctionRepository = soldAuctionRepository;
@@ -43,6 +47,7 @@ namespace Antique_Shop.Controllers
             this.httpContextAccessor = httpContextAccessor;
             this.userManager = userManager;
             this.payment = payment;
+            this.borrowedAuctionRepository = borrowedAuctionRepository;
         }
 
         [HttpGet]
@@ -83,20 +88,20 @@ namespace Antique_Shop.Controllers
             return View();
         }
            [HttpPost]
-           public async Task<IActionResult> BuyAsync(int id)
+           public async Task<IActionResult> Buy(int id)
            {
             var auction = auctionRepository.GetAuction(id);
             string buyerId = this.GetCurrentUserId();
             var saldo = await GetCurrentUserSaldoAsync();
             if(buyerId == auction.SellerId)
             {
-                return View();
+                return RedirectToAction("Index", "Home");
             }
             else if(saldo < auction.Price)
             {
                 //@todo
                 //error
-                return View();
+                return RedirectToAction("Index", "Home");
             }
             else 
             {
@@ -158,6 +163,49 @@ namespace Antique_Shop.Controllers
                 return RedirectToAction("Index", "Home");
             }
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Lend(int id)
+        {
+            var auction = auctionRepository.GetAuction(id);
+            string borrowerId = this.GetCurrentUserId();
+            var saldo = await GetCurrentUserSaldoAsync();
+            if (borrowerId == auction.SellerId)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else if (saldo < auction.Price)
+            {
+                //@todo
+                //error
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                var accountSeller = await userManager.FindByIdAsync(auction.SellerId);
+                var accountBuyer = await userManager.FindByIdAsync(borrowerId);
+                payment.MoveSaldo(accountBuyer, accountSeller, auction.Price);
+                BorrowedAuction borrowedAuction = new BorrowedAuction
+                {
+                    // Id = auction.Id,
+                    Name = auction.Name,
+                    ReleaseDate = auction.ReleaseDate,
+                    Category = auction.Category,
+                    Price = auction.Price,
+                    ImagePath = auction.ImagePath,
+                    Description = auction.Description,
+                    SellerId = auction.SellerId,
+                    Author = auction.Author,
+                    ISBN = auction.ISBN,
+                    Condition = auction.Condition,
+                    BorrowerId = borrowerId,
+                    DeadlineForBorrow = DateTime.Today.AddDays(auction.lendPeriod)
+                };
+                borrowedAuctionRepository.Add(borrowedAuction);
+                auctionRepository.Delete(id);
+                return RedirectToAction("Index", "Home");
+            }
         }
     }
 }
