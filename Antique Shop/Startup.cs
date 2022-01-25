@@ -39,6 +39,7 @@ namespace Antique_Shop
             services.AddScoped<IPayment, AccountRepositorySQL>();
             services.AddScoped<IAuctionRepository, AuctionRepositorySQL>();
             services.AddScoped<ISoldAuctionRepository, SoldAuctionRepositorySQL>();
+            services.AddScoped<IBorrowedAuctionRepository, BorrowedAuctionRepositorySQL>();
             services.AddHttpContextAccessor();
             
         }
