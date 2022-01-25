@@ -84,19 +84,19 @@
 
                             @if (Model.lendPeriod == 0)
                             {
-                            <form method="post">
-                                <button type="submit" asp-controller="Auction" asp-action="Buy" asp-route-id="@Model.Id" class="btn btn-success btn-lg">
-                                    Buy
-                                </button>
-                            </form>
+                                <form method="post">
+                                    <button type="submit" asp-controller="Auction" asp-action="Buy" asp-route-id="@Model.Id" class="btn btn-success btn-lg">
+                                        Buy
+                                    </button>
+                                </form>
                             }
                             else
                             {
-                            <form method="post">
-                                <button type="submit" asp-controller="Auction" asp-action="Lend" asp-route-id="@Model.Id" class="btn btn-success btn-lg">
-                                    Lend
-                                </button>
-                            </form>
+                                <form method="post">
+                                    <button type="submit" asp-controller="Auction" asp-action="Lend" asp-route-id="@Model.Id" class="btn btn-success btn-lg">
+                                        Lend
+                                    </button>
+                                </form>
                             }
                         </div>
 					</div>
