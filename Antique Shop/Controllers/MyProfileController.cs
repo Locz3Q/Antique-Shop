@@ -16,19 +16,21 @@ namespace Antique_Shop.Controllers
         private readonly SignInManager<Account> signInManager;
         private readonly IAccountRepository accountRepository;
         private readonly IAuctionRepository auctionRepository;
-        public MyProfileController(UserManager<Account> userManager, IAccountRepository accountRepository, SignInManager<Account> signInManager, IAuctionRepository auctionRepository)
+        private readonly ISoldAuctionRepository soldAuctionRepository;
+        public MyProfileController(UserManager<Account> userManager, IAccountRepository accountRepository, SignInManager<Account> signInManager, IAuctionRepository auctionRepository, ISoldAuctionRepository soldAuctionRepository)
         {
             this.userManager = userManager;
             this.accountRepository = accountRepository;
             this.signInManager = signInManager;
             this.auctionRepository = auctionRepository;
+            this.soldAuctionRepository = soldAuctionRepository;
         }
         public async Task <IActionResult> Index()
         {
 
             ViewData["user"] = await userManager.GetUserAsync(HttpContext.User);
             ViewData["auctionList"] = auctionRepository.GetAllAuctions();
-
+            ViewData["soldAuctionList"] = soldAuctionRepository.GetAllAuctions();
             return View();
         }
 

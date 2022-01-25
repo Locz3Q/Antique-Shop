@@ -13,83 +13,67 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 </head>
 <body>
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-6">
-				<div class="jumbotron shadow-lg p-3 bg-white rounded">
-					<h3 class="text-dark">My Profile</h3>
-					<form method="post" class="my-custom-form">
-						<div>
-							<div class="row justify-content-center my-4">
-								<div class="mx-auto my-0">
-									<div class="input-group-prepend my-2">
-										<span class="input-group-text"> <i class="fa fa-id-card"></i> </span><input asp-for="FirstName" class="form-control ml-1" value="@Model.FirstName" style="max-width:140px;"/>
-									</div>
-									<div class="input-group-prepend my-2">
-										<span class="input-group-text"> <i class="far fa-id-card"></i> </span><input asp-for="LastName" class="form-control ml-1" value="@Model.LastName" style="max-width:140px;" />
-									</div>
-									<div class="input-group-prepend my-2">
-										<label class="ml-2 pt-2 text-white">a</label>
-									</div>
-									<div class="input-group-prepend my-2">
-										<span class="input-group-text"> <i class="fas fa-phone"></i> </span><input asp-for="PhoneNumber" class="form-control ml-1" value="@Model.PhoneNumber" style="max-width:140px;" />
-									</div>
-								</div>
-								<div class="mx-auto my-0">
-									<div class="input-group-prepend my-2">
-										<span class="input-group-text"> <i class="fa fa-road"></i> </span><input asp-for="Street" class="form-control ml-1" value="@Model.Street" style="max-width:140px;" />
-									</div>
-									<div class="input-group-prepend my-2">
-										<span class="input-group-text"> <i class="fas fa-home"></i> </span><input asp-for="ApartmentNumber" class="form-control ml-1" value="@Model.ApartmentNumber" style="max-width:140px;" />
-									</div>
-									<div class="input-group-prepend my-2">
-										<span class="input-group-text"> <i class="fas fa-archive"></i> </span><input asp-for="Postcode" class="form-control ml-1" value="@Model.Postcode" style="max-width:140px;" />
-									</div>
-									<div class="input-group-prepend my-2">
-										<span class="input-group-text"> <i class="fa fa-building"></i> </span><input asp-for="City" class="form-control ml-1" value="@Model.City" style="max-width:140px;" />
-									</div>
-								</div>
-							</div>
-							<div class="row justify-content-center">
-								<button type="submit" class="btn btn-outline-dark btn-sm mx-1"  asp-action="Index" method="post" asp-controller="MyProfile">Cancel</button>
-								<button type="submit" class="btn btn-outline-dark btn-sm mx-1">Change data</button>
-							</div>
-						</div>
-					</form>
-				</div>
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="jumbotron shadow-lg p-3 mb-5 bg-white rounded">
+                <h1 style="text-align: center;">Change Personal Data</h1><br />
+                    <form method="post" class="form-group row" style="justify-content: center;">
+                        <div style="margin-left: auto;margin-top: 0;margin-right: auto;margin-bottom: 0;">
+                            <div class="form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-id-card"></i> </span><input value="@Model.FirstName" asp-for="FirstName" class="form-control" placeholder="First name" />
+                                </div>
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="far fa-id-card"></i> </span><input value="@Model.LastName" asp-for="LastName" class="form-control" placeholder="Last name" />
+                                </div>
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fas fa-phone"></i> </span><input value="@Model.PhoneNumber" asp-for="PhoneNumber" class="form-control" placeholder="Phone number" />
+                                </div>
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div style="margin-right: auto;
+                                    margin-left: auto;">
+                        <div class="form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-road"></i> </span><input value="@Model.Street" asp-for="Street" class="form-control" placeholder="Street" />
+                            </div>
+                            <span asp-validation-for="Street" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fas fa-home"></i> </span><input value="@Model.ApartmentNumber" asp-for="ApartmentNumber" class="form-control" placeholder="Apartment number" />
+                            </div>
+                            <span asp-validation-for="ApartmentNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fas fa-archive"></i> </span><input value="@Model.Postcode" asp-for="Postcode" class="form-control" placeholder="Postcode" />
+                            </div>
+                            <span asp-validation-for="Postcode" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-building"></i> </span><input value="@Model.City" asp-for="City" class="form-control" placeholder="City" />
+                            </div>
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <button type="submit" class="btn btn-outline-dark btn-sm mx-1" asp-action="Index" method="post" asp-controller="MyProfile">Cancel</button>
+                        <button type="submit" class="btn btn-outline-dark btn-sm mx-1">Change data</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-				<div class="jumbotron shadow-lg p-3 bg-white rounded">
-					<h3 class="text-dark">Past Auctions</h3>
-					<div class="row justify-content-center my-4">
-						&lt;List of items bought by this user&gt;<br />
-						&lt;List of items sold by this user&gt;
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="jumbotron shadow-lg p-3 bg-white rounded">
-					<h3 class="text-dark">My Wallet</h3>
-					<div class="row justify-content-center my-4 text-dark">
-						20zł
-					</div>
-				</div>
-				<div class="jumbotron shadow-lg p-3 bg-white rounded">
-					<h3 class="text-dark">My Auctions</h3>
-					<div class="row justify-content-center my-4">
-						&lt;List of items currently for sale by this user&gt;<br />
-						&lt;List of items currently for lend by this user&gt;
-					</div>
-				</div>
-				<div class="jumbotron shadow-lg p-3 bg-white rounded">
-					<h3 class="text-dark">Lends and Borrows</h3>
-					<div class="row justify-content-center my-4">
-						&lt;List of items currently lent to someone by this user&gt;<br />
-						&lt;List of items currently borrowed from someone by this user&gt;
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>
 

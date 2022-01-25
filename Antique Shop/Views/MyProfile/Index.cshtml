@@ -6,6 +6,7 @@
 }
 @{ 
     IEnumerable<Auction> auctions = ViewData["auctionList"] as IEnumerable<Auction>;
+    IEnumerable<SoldAuction> soldAuctions = ViewData["soldAuctionList"] as IEnumerable<SoldAuction>;
 	Account account = ViewData["user"] as Antique_Shop.Models.Account;
 }
 
@@ -69,33 +70,30 @@
                 </div>
                 <div class="jumbotron shadow-lg p-3 bg-white rounded">
                     <h3 class="text-dark">Past Auctions</h3>
-                    <div id="recipeCarousel" class="carousel slide w-100 row mx-auto my-auto" data-ride="carousel">
-                        <div class="carousel-inner w-100 h-100 d-flex" role="listbox">
-                            @foreach (var auction in auctions)
+                    <div class="row">
+                        @foreach (var auction in auctions)
+                        {
+                            @foreach (var soldAuction in soldAuctions)
                             {
-                                var imagePath = "~/images/" + (auction.ImagePath ?? "noimage.jpg");
-                                <!--<div class="carousel-item mb-5">-->
-                                <div class="col-md-4">
-                                    <div class="card card-body">
-                                        <form method="get" class="p-2">
-                                            <button type="submit" asp-action="Details" asp-route-id="@auction.Id" asp-controller="Home">
-                                                <img class="mx-auto" src="@imagePath" asp-append-version="true" width="100px">
-                                            </button>
-                                        </form>
-                                    </div>
-                                <!--</div>-->
-                            </div>
+                                if (auction.Name == soldAuction.Name && soldAuction.SellerId == account.Id)
+                                {
+                                    var imagePath = "~/images/" + (auction.ImagePath ?? "noimage.jpg");
+                                    <div class="col-md-4 ">
+                                        <figure class="card card-product-grid d-flex align-items-start flex-column" style="height: 100%;">
+                                            <div class="img-wrap mb-auto">
+                                                <form method="get">
+                                                    <button type="submit" asp-action="Details" asp-route-id="@auction.Id" asp-controller="Home" class="btn btn-default">
+                                                        <img src="@imagePath" asp-append-version="true" class="img-fluid">
+                                                    </button>
+                                                </form>
+                                            </div> <!-- img-wrap.// -->
+                                        </figure>
+                                    </div> <!-- col.// -->
+                                }
                             }
-                        </div>
-                        <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
+
+                        }
+                    </div> <!-- row end.// -->
                 </div>
             </div>
             <div class="col-md-6">
@@ -111,106 +109,94 @@
                 </div>
                 <div class="jumbotron shadow-lg p-3 bg-white rounded">
                     <h3 class="text-dark">My Auctions</h3>
-                    <div id="recipeCarousel" class="carousel slide w-100 row mx-auto my-auto" data-ride="carousel">
-                        <div class="carousel-inner w-100 h-100 d-flex" role="listbox">
-                            @foreach (var auction in auctions)
+                    <div class="row">
+                        @foreach (var auction in auctions)
+                        {
+                            if (auction.SellerId == account.Id)
                             {
                                 var imagePath = "~/images/" + (auction.ImagePath ?? "noimage.jpg");
-                                <!--<div class="carousel-item mb-5">-->
-                                <div class="col-md-4">
-                                    <div class="card card-body">
-                                        <form method="get" class="p-2">
-                                            <button type="submit" asp-action="Details" asp-route-id="@auction.Id" asp-controller="Home">
-                                                <img class="mx-auto" src="@imagePath" asp-append-version="true" width="100px">
-                                            </button>
-                                        </form>
-                                    </div>
-                                    <!--</div>-->
-                                </div>
+                                <div class="col-md-4 ">
+                                    <figure class="card card-product-grid d-flex align-items-start flex-column" style="height: 100%;">
+                                        <div class="img-wrap mb-auto">
+                                            <form method="get">
+                                                <button type="submit" asp-action="Details" asp-route-id="@auction.Id" asp-controller="Home" class="btn btn-default">
+                                                    <img src="@imagePath" asp-append-version="true" class="img-fluid">
+                                                </button>
+                                            </form>
+                                        </div> <!-- img-wrap.// -->
+                                        <figcaption class="info-wrap">
+
+                                            @if (auction.lendPeriod == 0)
+                                            {
+                                            <div class="fix-height mb-2 p-2">
+                                                <div class="text-lg-left">For Sale</div>
+                                            </div>
+                                            }
+                                            else
+                                            {
+                                            <div class="fix-height mb-2">
+                                                <form method="get">
+                                                    <button type="submit" asp-action="Details" asp-route-id="@auction.Id" asp-controller="Home" class="btn btn-block btn-dark">
+                                                        <span class="h6 small">Confirm book return receipt</span>
+                                                    </button>
+                                                </form>
+                                                <div class="text-lg-left">For Borrow</div>
+                                            </div>
+                                            }
+                                        </figcaption>
+                                    </figure>
+                                </div> <!-- col.// -->
                             }
-                        </div>
-                        <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
+                        }
+                    </div> <!-- row end.// -->
                 </div>
                 <div class="jumbotron shadow-lg p-3 bg-white rounded">
-                    <h3 class="text-dark">Lends and Borrows</h3>
-                    <div id="recipeCarousel" class="carousel slide w-100 row mx-auto my-auto" data-ride="carousel">
-                        <div class="carousel-inner w-100 h-100 d-flex" role="listbox">
-                            @foreach (var auction in auctions)
+                    <h3 class="text-dark">Bought and Borrows</h3>
+                    <div class="row">
+                        @foreach (var auction in auctions)
+                        {
+                            @foreach (var soldAuction in soldAuctions)
                             {
-                                var imagePath = "~/images/" + (auction.ImagePath ?? "noimage.jpg");
-                                <!--<div class="carousel-item mb-5">-->
-                                <div class="col-md-4">
-                                    <div class="card card-body">
-                                        <form method="get" class="p-2">
-                                            <button type="submit" asp-action="Details" asp-route-id="@auction.Id" asp-controller="Home">
-                                                <img class="mx-auto" src="@imagePath" asp-append-version="true" width="100">
-                                            </button>
-                                        </form>
-                                    </div>
-                                    <!--</div>-->
-                                </div>
+                                if (soldAuction.BuyerId == account.Id)
+                                {
+                                    var imagePath = "~/images/" + (soldAuction.ImagePath ?? "noimage.jpg");
+                                    <div class="col-md-4 ">
+                                        <figure class="card card-product-grid d-flex align-items-start flex-column" style="height: 100%;">
+                                            <div class="img-wrap mb-auto">
+                                                <form method="get">
+                                                    <button type="submit" asp-action="Details" asp-route-id="@soldAuction.Id" asp-controller="Home" class="btn btn-default">
+                                                        <img src="@imagePath" asp-append-version="true" class="img-fluid">
+                                                    </button>
+                                                </form>
+                                            </div> <!-- img-wrap.// -->
+                                            <figcaption class="info-wrap">
+                                                @if (soldAuction.lendPeriod == 0)
+                                                {
+                                                    <div class="fix-height mb-2 p-2">
+                                                        <div class="text-lg-left">Bought</div>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="fix-height mb-2">
+                                                        <form method="get">
+                                                            <button type="submit" asp-action="Details" asp-route-id="@soldAuction.Id" asp-controller="Home" class="btn btn-dark">
+                                                                <span class="h6 small">Return book</span>
+                                                            </button>
+                                                        </form>
+                                                        <div class="text-lg-left">Borrowed</div>
+                                                    </div>
+                                                }
+                                            </figcaption>
+                                        </figure>
+                                    </div> <!-- col.// -->
+                                }
                             }
-                        </div>
-                        <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
+                    }
+                    </div> <!-- row end.// -->
                 </div>
             </div>
         </div>
     </div>
-   <script>
-       let items = document.querySelectorAll('.carousel .carousel-item')
-
-       items.forEach((el) => {
-           // number of slides per carousel-item
-           const minPerSlide = 4
-           let next = el.nextElementSibling
-           for (var i = 1; i < minPerSlide; i++) {
-               if (!next) {
-                   // wrap carousel by using first child
-                   next = items[0]
-               }
-               let cloneChild = next.cloneNode(true)
-               el.appendChild(cloneChild.children[0])
-               next = next.nextElementSibling
-           }
-       })
-   </script>
-   <style>
-        @@media (min-width: 768px) {
-
-    .carousel-inner .carousel-item-end.active,
-    .carousel-inner .carousel-item-next {
-      transform: translateX(25%);
-    }
-
-    .carousel-inner .carousel-item-start.active,
-    .carousel-inner .carousel-item-prev {
-      transform: translateX(-25%);
-    }
-}
-
-.carousel-inner .carousel-item-end,
-.carousel-inner .carousel-item-start {
-  transform: translateX(0);
-}
-   </style>
-    <script type="text/javascript">
-
-    </script>
 </body>
 </html>
