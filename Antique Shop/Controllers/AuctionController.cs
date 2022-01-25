@@ -188,7 +188,6 @@ namespace Antique_Shop.Controllers
                 payment.MoveSaldo(accountBuyer, accountSeller, auction.Price);
                 BorrowedAuction borrowedAuction = new BorrowedAuction
                 {
-                    // Id = auction.Id,
                     Name = auction.Name,
                     ReleaseDate = auction.ReleaseDate,
                     Category = auction.Category,
