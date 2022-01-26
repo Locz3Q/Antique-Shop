@@ -106,5 +106,14 @@ namespace Antique_Shop.Controllers
             return RedirectToAction("index", "MyProfile");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SubtractSaldo(float number)
+        {
+            var userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var currentUser = await userManager.FindByIdAsync(userId);
+            payment.SubtractSaldo(currentUser, number);
+            return RedirectToAction("index", "MyProfile");
+        }
+
     }
 }
