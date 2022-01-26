@@ -122,7 +122,7 @@
                             <button id="Button" type="submit" name="submit" formmethod="post" class="btn btn-outline-dark btn-sm">Deposit</button>
                         </form>
                         <span class="p-2">or</span>
-                        <form asp-controller="Account" asp-action="AddSaldo" asp-route-value="number" method="post">
+                        <form asp-controller="Account" asp-action="SubtractSaldo" asp-route-value="number" method="post">
                             <input type="number" name="number" class="form-control" style="max-width:140px;" placeholder="$" />
                             <button id="Button" type="submit" name="submit" formmethod="post" class="btn btn-outline-dark btn-sm">Withdraw</button>
                         </form>
